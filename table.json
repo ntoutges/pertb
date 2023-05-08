@@ -1,0 +1,125 @@
+{
+  "layout": {
+    "1": {
+      "series": [ "H", "Li", "Na", "K", "Rb", "Cs", "Fr" ],
+      "start": 1
+    },
+    "2": {
+      "series": [ "Be", "Mg", "Ca", "Sr", "Ba", "Ra" ],
+      "start": 2
+    },
+    "3": {
+      "series": [ "Sc", "Y", "La", "Ac" ],
+      "start": 4
+    },
+    "4": {
+      "series": [ "Ti", "Zr", "Hf", "Rf" ],
+      "start": 4
+    },
+    "5": {
+      "series": [ "V", "Nb", "Ta", "Db" ],
+      "start": 4
+    },
+    "6": {
+      "series": [ "Cr", "Mo", "W", "Sg" ],
+      "start": 4
+    },
+    "7": {
+      "series": [ "Mn", "Tc", "Re", "Bh" ],
+      "start": 4
+    },
+    "8": {
+      "series": [ "Fe", "Ru", "Os", "Hs" ],
+      "start": 4
+    },
+    "9": {
+      "series": [ "Co", "Rh", "Ir", "Mt" ],
+      "start": 4
+    },
+    "10": {
+      "series": [ "Ni", "Pd", "Pt", "Ds" ],
+      "start": 4
+    },
+    "11": {
+      "series": [ "Cu", "Ag", "Au", "Rg" ],
+      "start": 4
+    },
+    "12": {
+      "series": [ "Zn", "Cd", "Hg", "Cn" ],
+      "start": 4
+    },
+    "13": {
+      "series": [ "B", "Al", "Ga", "In", "Tl", "Nh" ],
+      "start": 2
+    },
+    "14": {
+      "series": [ "C", "Si", "Ge", "Sn", "Pb", "Fl" ],
+      "start": 2
+    },
+    "15": {
+      "series": [ "N", "P", "As", "Sb", "Bi", "Mc" ],
+      "start": 2
+    },
+    "16": {
+      "series": [ "O", "S", "Se", "Te", "Po", "Lv" ],
+      "start": 2
+    },
+    "17": {
+      "series": [ "F", "Cl", "Br", "I", "At", "Ts" ],
+      "start": 2
+    },
+    "18": {
+      "series": [ "He", "Ne", "Ar", "Kr", "Xe", "Rn", "Og" ],
+      "start": 1
+    },
+    "lanthanides": {
+      "series": [ "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu" ],
+      "start": 4
+    },
+    "actinides": {
+      "series": [ "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr" ],
+      "start": 4
+    }
+  },
+  "style": {
+    "Alkali Metal": {
+      "color": "#b6dce5"
+    },
+    "Alkaline Earth Metal": {
+      "color": "#ffbebe"
+    },
+    "Transition Metal": {
+      "color": "#e6cbff"
+    },
+    "Post-Transition Metal": {
+      "color": "#a1ffd1"
+    },
+    "Metalloid": {
+      "color": "#fef7e0"
+    },
+    "Diatomic Non-Metal": {
+      "color": "#fffe7e"
+    },
+    "Polyatomic Non-Metal": {
+      "color": "#fffe7e"
+    },
+    "Halogen": {
+      "color": "#ffcc91"
+    },
+    "Noble Gas": {
+      "color": "#ffcb48"
+    },
+    "Lanthanide": {
+      "color": "#acfff6"
+    },
+    "Actinide": {
+      "color": "#ffc8a1"
+    },
+    "Unknown": {
+      "color": "#e1e1e1"
+    }
+  },
+  "links": [
+    ["Diatomic Non-Metal", "Polyatomic Non-Metal"]
+  ]
+}

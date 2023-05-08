@@ -1,0 +1,217 @@
+#draggables-container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  /* width: 100vw;
+  height: 100vh; */
+  z-index: 1;
+}
+
+.draggables {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  z-index: 0;
+
+  transition-property: height;
+  transition-duration: 50ms;
+  transition-timing-function: ease-out;
+
+  user-select: none;
+}
+
+.drag-regions:hover {
+  cursor: grab;
+}
+
+.drag-regions:active {
+  cursor: grabbing;
+}
+
+.draggable-contents {
+  position: absolute;
+  top: 20px;
+  height: calc(100% - 22px);
+  width: calc(100% - 2px);
+
+  border: solid black 1px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  background-color: #ffffff;
+
+  overflow: hidden;
+}
+
+.draggables.minimized {
+  height: 20px !important;
+}
+
+.draggable-headers {
+  background-color: #538ed1;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.draggable-headers:hover {
+  background-color: #78a5d9;
+}
+
+.draggable-titles {
+  font-family: "Roboto Slab";
+  height: 100%;
+  width: calc(100% - 2px);
+  white-space: nowrap;
+  padding-left: 2px;
+
+  user-select: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  transition-property: width;
+  transition-duration: 100ms;
+  /* transition-timing-function: linear; */
+}
+
+.draggable-headers:hover .draggable-titles {
+  width: calc(100% - 40px);
+}
+
+.draggable-deletes, .draggable-minimizes {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: 15px;
+  width: 15px;
+  right: -15px;
+
+  pointer-events: none;
+
+  transition-property: right;
+  transition-duration: 100ms;
+}
+
+.draggable-deletes:hover, .draggable-minimizes:hover {
+  cursor: pointer;
+  filter: brightness(120%);
+}
+
+.draggable-headers:hover .draggable-deletes,
+.draggable-headers:hover .draggable-minimizes {
+  pointer-events: all;
+}
+
+.draggable-headers:hover .draggable-deletes {
+  right: 2px;
+}
+
+.draggable-headers:hover .draggable-minimizes {
+  right: 20px;
+}
+
+.draggable-deletes {
+  border-radius: 100%;
+  background-color: #d90000;
+}
+
+.draggable-minimizes {
+  background-color: #d1d00a;
+  border-radius: 30%;
+}
+
+
+.large-element-children {
+  position: absolute;
+  font-family: "Roboto Slab";
+  user-select: none;
+}
+
+.large-element-symbols {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 55px;
+  height: 55px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.large-element-numbers {
+  top: 0px;
+  left: 4px;
+}
+
+.large-element-masses {
+  right: 4px;
+  top: 0px;
+  text-align: right;
+}
+
+.large-element-lewis-dots {
+  height: 7px;
+  width: 7px;
+  border-radius: 100%;
+  background-color: #ab9200;
+
+  transform: translate(-50%, -50%);
+}
+
+.large-element-configurations {
+  white-space: nowrap;
+  left: 0px;
+  bottom: 0px;
+  font-size: 10px;
+  height: 13px;
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  align-items: baseline;
+
+  transition-duration: 100ms;
+  transition-property: height;
+}
+
+.large-element-configurations:hover {
+  height: 20px;
+}
+
+.large-element-configuration-terms {
+  font-size: 1em;
+  flex-grow: 1;
+
+  transition-duration: 100ms;
+  transition-property: flex-grow, font-size, max-width;
+  text-align: center;
+  height: 13px;
+  max-width: 20px;
+}
+
+.large-element-configuration-terms:hover {
+  cursor: pointer;
+  margin: 0px;
+  flex-grow: 3;
+  font-size: 1.3em;
+  color: green;
+  background-color: lightgrey;
+  height: 20px;
+  max-width: 999px;
+}
+
+.large-element-configuration-shells,
+.large-element-configuration-subshells,
+.large-element-configuration-indicies {
+  display: inline-block;
+  /* position: relative; */
+}
+
+.large-element-configuration-indicies {
+  font-size: 0.5em;
+  vertical-align: top;
+}

@@ -1,0 +1,147 @@
+:root {
+  --size: 30px;
+  --hover-size: 40px;
+  --column-size: 40px;
+  --padding: 10px 10px 10px 10px;
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("RobotoSlab.ttf");
+}
+
+#text-width-getter {
+  display: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+
+  background-color: cornsilk;
+  overflow: hidden;
+}
+
+#table {
+  position: relative;
+  top: 10px;
+  left: 10px
+}
+
+.table-columns, .island-rows {
+  position: absolute;
+  padding: calc((var(--column-size) - var(--size)) / 2);
+}
+
+.table-columns {
+  width: var(--size); 
+}
+
+.island-rows {
+  height: var(--size);
+}
+
+.table-columns:nth-child(even), .island-rows:nth-child(even) {
+  background-color: #b7b7b7;
+}
+
+.table-columns:nth-child(odd), .island-rows:nth-child(odd) {
+  background-color: #9f9f9f;
+}
+
+.table-columns:hover, .island-rows:hover {
+  background-color: #e1d24a !important;
+  cursor: crosshair;
+}
+
+
+.elements {
+  position: absolute;
+
+  height: var(--size);
+  width: var(--size);
+  
+  /* border: solid black 1px; */
+  outline: solid black 1px;
+
+  z-index: 1;
+  /* opacity: 0.8; */
+  filter: brightness(90%);
+  user-select: none;
+
+  overflow: hidden;
+}
+
+.table-columns .elements {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.island-rows .elements {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.elements:hover {
+  cursor: pointer;
+  height: var(--hover-size);
+  width: var(--hover-size);
+
+  z-index: 2;
+
+  font-size: 16px;
+}
+
+.elements.actives {
+  filter: brightness(100%);
+}
+
+.table-columns .elements:hover {
+  transform: translate( -50%, calc( (var(--size) - var(--hover-size)) / 2) );
+}
+
+.island-rows .elements:hover {
+  transform: translate( calc( (var(--size) - var(--hover-size)) / 2), -50% );
+}
+
+.elements:hover .element-top-lefts {
+  font-size: 0.75em;
+}
+
+.elements:hover .element-mid-bottoms {
+  font-size: 0.5em;
+}
+
+
+.element-mains {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: calc(var(--size) / 2);
+  font-family: "Roboto Slab";
+
+  font-size: 1em;
+}
+
+.element-top-lefts {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  font-size: 0.5em;
+  padding-left: 0.125em;
+
+  font-family: "Roboto Slab";
+}
+
+.element-mid-bottoms {
+  position: absolute;
+  bottom: 0px;
+
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.4em;
+}
