@@ -251,7 +251,7 @@ class LargeElement extends Draggable {
       }
     });
 
-    const valence = Math.min(8, elInfo.getValence(symbol)); // 'min' to prevent wierdness from elements like Pd (need to ask about this)
+    const valence = elInfo.getValence(symbol);
     const valenceEls = [];
     const posXConvert = [ -0.6, -0.2, 0, 0.2, 0.6 ];
     const posYConvert = [ -23, -8, 0, 8, 23 ];
