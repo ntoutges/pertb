@@ -206,9 +206,26 @@ class LargeElement extends Draggable {
     const numberEl = document.createElement("div");
     numberEl.classList.add("large-element-numbers");
     numberEl.classList.add("large-element-children");
-    // numberEl.classList.add("clickables");
+    numberEl.classList.add("clickables");
     numberEl.setAttribute("title", `${number} protons`);
     numberEl.innerText = number;
+
+    numberEl.addEventListener("click", () => {
+      const el = buildBigNumber({
+        spawn: this.id,
+        number: number,
+        type: `${symbol} Number`
+      });
+
+      if (el.isNew) {
+        this.el.parentElement.append(el.el);
+        const bounds = this.el.getBoundingClientRect();
+        el.setPos(
+          bounds.left + bounds.width + 5,
+          bounds.top
+        );
+      }
+    })
 
     
     const mass = elInfo.getMass(symbol);
@@ -347,6 +364,83 @@ export function buildIsotopeDisplay({
   else {
     el = new IsotopeDisplay({
       symbol,
+      spawn
+    });
+    el.isNew = true;
+  }
+  return el;
+}
+
+class BigNumber extends Draggable {
+  constructor({
+    type,
+    number,
+    spawn
+  }) {
+    super({
+      title: type,
+      type: "BigNumber",
+      allDrag: false,
+      height: 30,
+      width: 100,
+      id: type + ":" + number,
+      spawn
+    });
+
+    this.number = number;
+
+    const backgroundEl = document.createElement("div");
+    backgroundEl.classList.add("big-number-children");
+    backgroundEl.classList.add("big-number-backgrounds");
+
+    const numberEl = document.createElement("div");
+    numberEl.classList.add("big-number-children");
+    numberEl.classList.add("big-number-values");
+    numberEl.innerText = number;
+
+    const maxSize = 20;
+    const minSize = 10;
+    for (let i = maxSize; i >= minSize; i--) {
+      if (getTextWidth(number, "Roboto Slab", i) <= 93 || i == minSize) {
+        numberEl.style.fontSize = `${i}px`;
+        break;
+      }
+    }
+
+    const copiedIndicatorEl = document.createElement("div");
+    copiedIndicatorEl.classList.add("big-number-children");
+    copiedIndicatorEl.classList.add("big-number-copieds");
+    copiedIndicatorEl.innerText = "Copied!";
+
+    backgroundEl.addEventListener("click", () => {
+      navigator.clipboard.writeText(this.number.toString());
+      copiedIndicatorEl.classList.add("actives");
+      setTimeout(() => {
+        copiedIndicatorEl.classList.remove("actives");
+      }, 500);
+    });
+
+
+    backgroundEl.append(numberEl);
+    backgroundEl.append(copiedIndicatorEl);
+    this.content.append(backgroundEl);
+  }
+}
+
+export function buildBigNumber({
+  type,
+  number,
+  spawn
+}) {
+  let el = getDraggable("BigNumber", type + ":" + number);
+  if (el) {
+    el.isNew = false;
+    el.identify();
+  }
+  else {
+    el = new BigNumber({
+      type,
+      number,
       spawn
     });
     el.isNew = true;
