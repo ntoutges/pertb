@@ -1,7 +1,6 @@
 {
   "H": {
     "appearance": "colorless gas",
-    "mass": 1.008,
     "block": "s",
     "boil": 20.271,
     "density": 0.08988,
@@ -23,11 +22,25 @@
     ],
     "group": "Diatomic Non-Metal",
     "name": "Hydrogen",
-    "family": 1
+    "family": 1,
+    "isotopes": {
+      "H-1": {
+        "mass": 1.00782503223,
+        "frequency": 0.999885
+      },
+      "H-2": {
+        "mass": 2.01410177812,
+        "frequency": 0.000115
+      },
+      "H-3": {
+        "mass": 3.0160492779,
+        "frequency": 0
+      }
+    },
+    "mass": 1.008
   },
   "He": {
     "appearance": "colorless gas, exhibiting a red-orange glow when placed in a high-voltage electric field",
-    "mass": 4.0026022,
     "block": "s",
     "boil": 4.222,
     "density": 0.1786,
@@ -50,11 +63,21 @@
     ],
     "group": "Noble Gas",
     "name": "Helium",
-    "family": 18
+    "family": 18,
+    "isotopes": {
+      "He-3": {
+        "mass": 3.0160293201,
+        "frequency": 0.00000134
+      },
+      "He-4": {
+        "mass": 4.00260325413,
+        "frequency": 0.99999866
+      }
+    },
+    "mass": 4.0026022
   },
   "Li": {
     "appearance": "silvery-white",
-    "mass": 6.94,
     "block": "s",
     "boil": 1603,
     "density": 0.534,
@@ -79,11 +102,21 @@
     ],
     "group": "Alkali Metal",
     "name": "Lithium",
-    "family": 1
+    "family": 1,
+    "isotopes": {
+      "Li-6": {
+        "mass": 6.0151228874,
+        "frequency": 0.0759
+      },
+      "Li-7": {
+        "mass": 7.0160034366,
+        "frequency": 0.9241
+      }
+    },
+    "mass": 6.94
   },
   "Be": {
     "appearance": "white-gray metallic",
-    "mass": 9.01218315,
     "block": "s",
     "boil": 2742,
     "density": 1.85,
@@ -109,11 +142,17 @@
     ],
     "group": "Alkaline Earth Metal",
     "name": "Beryllium",
-    "family": 2
+    "family": 2,
+    "isotopes": {
+      "Be-9": {
+        "mass": 9.012183065,
+        "frequency": 1
+      }
+    },
+    "mass": 9.01218315
   },
   "B": {
     "appearance": "black-brown",
-    "mass": 10.81,
     "block": "p",
     "boil": 4200,
     "density": 2.08,
@@ -140,11 +179,21 @@
     ],
     "group": "Metalloid",
     "name": "Boron",
-    "family": 13
+    "family": 13,
+    "isotopes": {
+      "B-10": {
+        "mass": 10.01293695,
+        "frequency": 0.199
+      },
+      "B-11": {
+        "mass": 11.00930536,
+        "frequency": 0.801
+      }
+    },
+    "mass": 10.81
   },
   "C": {
     "appearance": null,
-    "mass": 12.011,
     "block": "p",
     "boil": null,
     "density": 1.821,
@@ -172,11 +221,25 @@
     ],
     "group": "Polyatomic Non-Metal",
     "name": "Carbon",
-    "family": 14
+    "family": 14,
+    "isotopes": {
+      "C-12": {
+        "mass": 12,
+        "frequency": 0.9893
+      },
+      "C-13": {
+        "mass": 13.00335483507,
+        "frequency": 0.0107
+      },
+      "C-14": {
+        "mass": 14.0032419884,
+        "frequency": 0
+      }
+    },
+    "mass": 12.011
   },
   "N": {
     "appearance": "colorless gas, liquid or solid",
-    "mass": 14.007,
     "block": "p",
     "boil": 77.355,
     "density": 1.251,
@@ -205,11 +268,21 @@
     ],
     "group": "Diatomic Non-Metal",
     "name": "Nitrogen",
-    "family": 15
+    "family": 15,
+    "isotopes": {
+      "N-14": {
+        "mass": 14.00307400443,
+        "frequency": 0.99636
+      },
+      "N-15": {
+        "mass": 15.00010889888,
+        "frequency": 0.00364
+      }
+    },
+    "mass": 14.007
   },
   "O": {
     "appearance": null,
-    "mass": 15.999,
     "block": "p",
     "boil": 90.188,
     "density": 1.429,
@@ -239,11 +312,25 @@
     ],
     "group": "Diatomic Non-Metal",
     "name": "Oxygen",
-    "family": 16
+    "family": 16,
+    "isotopes": {
+      "O-16": {
+        "mass": 15.99491461957,
+        "frequency": 0.99757
+      },
+      "O-17": {
+        "mass": 16.9991317565,
+        "frequency": 0.00038
+      },
+      "O-18": {
+        "mass": 17.99915961286,
+        "frequency": 0.00205
+      }
+    },
+    "mass": 15.999
   },
   "F": {
     "appearance": null,
-    "mass": 18.9984031636,
     "block": "p",
     "boil": 85.03,
     "density": 1.696,
@@ -274,11 +361,17 @@
     ],
     "group": "Diatomic Non-Metal",
     "name": "Fluorine",
-    "family": 17
+    "family": 17,
+    "isotopes": {
+      "F-19": {
+        "mass": 18.99840316273,
+        "frequency": 1
+      }
+    },
+    "mass": 18.9984031636
   },
   "Ne": {
     "appearance": "colorless gas exhibiting an orange-red glow when placed in a high voltage electric field",
-    "mass": 20.17976,
     "block": "p",
     "boil": 27.104,
     "density": 0.9002,
@@ -310,11 +403,25 @@
     ],
     "group": "Noble Gas",
     "name": "Neon",
-    "family": 18
+    "family": 18,
+    "isotopes": {
+      "Ne-20": {
+        "mass": 19.9924401762,
+        "frequency": 0.9048
+      },
+      "Ne-21": {
+        "mass": 20.993846685,
+        "frequency": 0.0027
+      },
+      "Ne-22": {
+        "mass": 21.991385114,
+        "frequency": 0.0925
+      }
+    },
+    "mass": 20.17976
   },
   "Na": {
     "appearance": "silvery white metallic",
-    "mass": 22.989769282,
     "block": "s",
     "boil": 1156.09,
     "density": 0.968,
@@ -348,11 +455,17 @@
     ],
     "group": "Alkali Metal",
     "name": "Sodium",
-    "family": 1
+    "family": 1,
+    "isotopes": {
+      "Na-23": {
+        "mass": 22.989769282,
+        "frequency": 1
+      }
+    },
+    "mass": 22.989769282
   },
   "Mg": {
     "appearance": "shiny grey solid",
-    "mass": 24.305,
     "block": "s",
     "boil": 1363,
     "density": 1.738,
@@ -387,11 +500,25 @@
     ],
     "group": "Alkaline Earth Metal",
     "name": "Magnesium",
-    "family": 2
+    "family": 2,
+    "isotopes": {
+      "Mg-24": {
+        "mass": 23.985041697,
+        "frequency": 0.7899
+      },
+      "Mg-25": {
+        "mass": 24.985836976,
+        "frequency": 0.1
+      },
+      "Mg-26": {
+        "mass": 25.982592968,
+        "frequency": 0.1101
+      }
+    },
+    "mass": 24.305
   },
   "Al": {
     "appearance": "silvery gray metallic",
-    "mass": 26.98153857,
     "block": "p",
     "boil": 2743,
     "density": 2.7,
@@ -427,11 +554,17 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Aluminium",
-    "family": 13
+    "family": 13,
+    "isotopes": {
+      "Al-27": {
+        "mass": 26.98153853,
+        "frequency": 1
+      }
+    },
+    "mass": 26.98153857
   },
   "Si": {
     "appearance": "crystalline, reflective with bluish-tinged faces",
-    "mass": 28.085,
     "block": "p",
     "boil": 3538,
     "density": 2.329,
@@ -468,11 +601,25 @@
     ],
     "group": "Metalloid",
     "name": "Silicon",
-    "family": 14
+    "family": 14,
+    "isotopes": {
+      "Si-28": {
+        "mass": 27.97692653465,
+        "frequency": 0.92223
+      },
+      "Si-29": {
+        "mass": 28.9764946649,
+        "frequency": 0.04685
+      },
+      "Si-30": {
+        "mass": 29.973770136,
+        "frequency": 0.03092
+      }
+    },
+    "mass": 28.085
   },
   "P": {
     "appearance": "colourless, waxy white, yellow, scarlet, red, violet, black",
-    "mass": 30.9737619985,
     "block": "p",
     "boil": null,
     "density": 1.823,
@@ -510,11 +657,17 @@
     ],
     "group": "Polyatomic Non-Metal",
     "name": "Phosphorus",
-    "family": 15
+    "family": 15,
+    "isotopes": {
+      "P-31": {
+        "mass": 30.97376199842,
+        "frequency": 1
+      }
+    },
+    "mass": 30.9737619985
   },
   "S": {
     "appearance": "lemon yellow sintered microcrystals",
-    "mass": 32.06,
     "block": "p",
     "boil": 717.8,
     "density": 2.07,
@@ -553,11 +706,29 @@
     ],
     "group": "Polyatomic Non-Metal",
     "name": "Sulfur",
-    "family": 16
+    "family": 16,
+    "isotopes": {
+      "S-32": {
+        "mass": 31.9720711744,
+        "frequency": 0.9499
+      },
+      "S-33": {
+        "mass": 32.9714589098,
+        "frequency": 0.0075
+      },
+      "S-34": {
+        "mass": 33.967867004,
+        "frequency": 0.0425
+      },
+      "S-36": {
+        "mass": 35.96708071,
+        "frequency": 0.0001
+      }
+    },
+    "mass": 32.06
   },
   "Cl": {
     "appearance": "pale yellow-green gas",
-    "mass": 35.45,
     "block": "p",
     "boil": 239.11,
     "density": 3.2,
@@ -597,11 +768,21 @@
     ],
     "group": "Diatomic Non-Metal",
     "name": "Chlorine",
-    "family": 17
+    "family": 17,
+    "isotopes": {
+      "Cl-35": {
+        "mass": 34.968852682,
+        "frequency": 0.7576
+      },
+      "Cl-37": {
+        "mass": 36.965902602,
+        "frequency": 0.2424
+      }
+    },
+    "mass": 35.45
   },
   "Ar": {
     "appearance": "colorless gas exhibiting a lilac/violet glow when placed in a high voltage electric field",
-    "mass": 39.9481,
     "block": "p",
     "boil": 87.302,
     "density": 1.784,
@@ -642,11 +823,25 @@
     ],
     "group": "Noble Gas",
     "name": "Argon",
-    "family": 18
+    "family": 18,
+    "isotopes": {
+      "Ar-36": {
+        "mass": 35.967545105,
+        "frequency": 0.003336
+      },
+      "Ar-38": {
+        "mass": 37.96273211,
+        "frequency": 0.000629
+      },
+      "Ar-40": {
+        "mass": 39.9623831237,
+        "frequency": 0.996035
+      }
+    },
+    "mass": 39.9481
   },
   "K": {
     "appearance": "silvery gray",
-    "mass": 39.09831,
     "block": "s",
     "boil": 1032,
     "density": 0.862,
@@ -689,11 +884,25 @@
     ],
     "group": "Alkali Metal",
     "name": "Potassium",
-    "family": 1
+    "family": 1,
+    "isotopes": {
+      "K-39": {
+        "mass": 38.9637064864,
+        "frequency": 0.932581
+      },
+      "K-40": {
+        "mass": 39.963998166,
+        "frequency": 0.000117
+      },
+      "K-41": {
+        "mass": 40.9618252579,
+        "frequency": 0.067302
+      }
+    },
+    "mass": 39.09831
   },
   "Ca": {
     "appearance": null,
-    "mass": 40.0784,
     "block": "s",
     "boil": 1757,
     "density": 1.55,
@@ -737,11 +946,37 @@
     ],
     "group": "Alkaline Earth Metal",
     "name": "Calcium",
-    "family": 2
+    "family": 2,
+    "isotopes": {
+      "Ca-40": {
+        "mass": 39.962590863,
+        "frequency": 0.96941
+      },
+      "Ca-42": {
+        "mass": 41.95861783,
+        "frequency": 0.00647
+      },
+      "Ca-43": {
+        "mass": 42.95876644,
+        "frequency": 0.00135
+      },
+      "Ca-44": {
+        "mass": 43.95548156,
+        "frequency": 0.02086
+      },
+      "Ca-46": {
+        "mass": 45.953689,
+        "frequency": 0.00004
+      },
+      "Ca-48": {
+        "mass": 47.95252276,
+        "frequency": 0.00187
+      }
+    },
+    "mass": 40.0784
   },
   "Sc": {
     "appearance": "silvery white",
-    "mass": 44.9559085,
     "block": "d",
     "boil": 3109,
     "density": 2.985,
@@ -786,11 +1021,17 @@
     ],
     "group": "Transition Metal",
     "name": "Scandium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Sc-45": {
+        "mass": 44.95590828,
+        "frequency": 1
+      }
+    },
+    "mass": 44.9559085
   },
   "Ti": {
     "appearance": "silvery grey-white metallic",
-    "mass": 47.8671,
     "block": "d",
     "boil": 3560,
     "density": 4.506,
@@ -836,11 +1077,33 @@
     ],
     "group": "Transition Metal",
     "name": "Titanium",
-    "family": 4
+    "family": 4,
+    "isotopes": {
+      "Ti-46": {
+        "mass": 45.95262772,
+        "frequency": 0.0825
+      },
+      "Ti-47": {
+        "mass": 46.95175879,
+        "frequency": 0.0744
+      },
+      "Ti-48": {
+        "mass": 47.94794198,
+        "frequency": 0.7372
+      },
+      "Ti-49": {
+        "mass": 48.94786568,
+        "frequency": 0.0541
+      },
+      "Ti-50": {
+        "mass": 49.94478689,
+        "frequency": 0.0518
+      }
+    },
+    "mass": 47.8671
   },
   "V": {
     "appearance": "blue-silver-grey metal",
-    "mass": 50.94151,
     "block": "d",
     "boil": 3680,
     "density": 6,
@@ -887,11 +1150,21 @@
     ],
     "group": "Transition Metal",
     "name": "Vanadium",
-    "family": 5
+    "family": 5,
+    "isotopes": {
+      "V-50": {
+        "mass": 49.94715601,
+        "frequency": 0.0025
+      },
+      "V-51": {
+        "mass": 50.94395704,
+        "frequency": 0.9975
+      }
+    },
+    "mass": 50.94151
   },
   "Cr": {
     "appearance": "silvery metallic",
-    "mass": 51.99616,
     "block": "d",
     "boil": 2944,
     "density": 7.19,
@@ -939,11 +1212,29 @@
     ],
     "group": "Transition Metal",
     "name": "Chromium",
-    "family": 6
+    "family": 6,
+    "isotopes": {
+      "Cr-50": {
+        "mass": 49.94604183,
+        "frequency": 0.04345
+      },
+      "Cr-52": {
+        "mass": 51.94050623,
+        "frequency": 0.83789
+      },
+      "Cr-53": {
+        "mass": 52.94064815,
+        "frequency": 0.09501
+      },
+      "Cr-54": {
+        "mass": 53.93887916,
+        "frequency": 0.02365
+      }
+    },
+    "mass": 51.99616
   },
   "Mn": {
     "appearance": "silvery metallic",
-    "mass": 54.9380443,
     "block": "d",
     "boil": 2334,
     "density": 7.21,
@@ -992,11 +1283,17 @@
     ],
     "group": "Transition Metal",
     "name": "Manganese",
-    "family": 7
+    "family": 7,
+    "isotopes": {
+      "Mn-55": {
+        "mass": 54.93804391,
+        "frequency": 1
+      }
+    },
+    "mass": 54.9380443
   },
   "Fe": {
     "appearance": "lustrous metallic with a grayish tinge",
-    "mass": 55.8452,
     "block": "d",
     "boil": 3134,
     "density": 7.874,
@@ -1046,11 +1343,29 @@
     ],
     "group": "Transition Metal",
     "name": "Iron",
-    "family": 8
+    "family": 8,
+    "isotopes": {
+      "Fe-54": {
+        "mass": 53.93960899,
+        "frequency": 0.05845
+      },
+      "Fe-56": {
+        "mass": 55.93493633,
+        "frequency": 0.91754
+      },
+      "Fe-57": {
+        "mass": 56.93539284,
+        "frequency": 0.02119
+      },
+      "Fe-58": {
+        "mass": 57.93327443,
+        "frequency": 0.00282
+      }
+    },
+    "mass": 55.8452
   },
   "Co": {
     "appearance": "hard lustrous gray metal",
-    "mass": 58.9331944,
     "block": "d",
     "boil": 3200,
     "density": 8.9,
@@ -1101,11 +1416,17 @@
     ],
     "group": "Transition Metal",
     "name": "Cobalt",
-    "family": 9
+    "family": 9,
+    "isotopes": {
+      "Co-59": {
+        "mass": 58.93319429,
+        "frequency": 1
+      }
+    },
+    "mass": 58.9331944
   },
   "Ni": {
     "appearance": "lustrous, metallic, and silver with a gold tinge",
-    "mass": 58.69344,
     "block": "d",
     "boil": 3003,
     "density": 8.908,
@@ -1157,11 +1478,33 @@
     ],
     "group": "Transition Metal",
     "name": "Nickel",
-    "family": 10
+    "family": 10,
+    "isotopes": {
+      "Ni-58": {
+        "mass": 57.93534241,
+        "frequency": 0.68077
+      },
+      "Ni-60": {
+        "mass": 59.93078588,
+        "frequency": 0.26223
+      },
+      "Ni-61": {
+        "mass": 60.93105557,
+        "frequency": 0.011399
+      },
+      "Ni-62": {
+        "mass": 61.92834537,
+        "frequency": 0.036346
+      },
+      "Ni-64": {
+        "mass": 63.92796682,
+        "frequency": 0.009255
+      }
+    },
+    "mass": 58.69344
   },
   "Cu": {
     "appearance": "red-orange metallic luster",
-    "mass": 63.5463,
     "block": "d",
     "boil": 2835,
     "density": 8.96,
@@ -1214,11 +1557,21 @@
     ],
     "group": "Transition Metal",
     "name": "Copper",
-    "family": 11
+    "family": 11,
+    "isotopes": {
+      "Cu-63": {
+        "mass": 62.92959772,
+        "frequency": 0.6915
+      },
+      "Cu-65": {
+        "mass": 64.9277897,
+        "frequency": 0.3085
+      }
+    },
+    "mass": 63.5463
   },
   "Zn": {
     "appearance": "silver-gray",
-    "mass": 65.382,
     "block": "d",
     "boil": 1180,
     "density": 7.14,
@@ -1263,11 +1616,33 @@
     ],
     "group": "Transition Metal",
     "name": "Zinc",
-    "family": 12
+    "family": 12,
+    "isotopes": {
+      "Zn-64": {
+        "mass": 63.92914201,
+        "frequency": 0.4917
+      },
+      "Zn-66": {
+        "mass": 65.92603381,
+        "frequency": 0.2773
+      },
+      "Zn-67": {
+        "mass": 66.92712775,
+        "frequency": 0.0404
+      },
+      "Zn-68": {
+        "mass": 67.92484455,
+        "frequency": 0.1845
+      },
+      "Zn-70": {
+        "mass": 69.9253192,
+        "frequency": 0.0061
+      }
+    },
+    "mass": 65.382
   },
   "Ga": {
     "appearance": "silver-white",
-    "mass": 69.7231,
     "block": "p",
     "boil": 2673,
     "density": 5.91,
@@ -1295,11 +1670,21 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Gallium",
-    "family": 13
+    "family": 13,
+    "isotopes": {
+      "Ga-69": {
+        "mass": 68.9255735,
+        "frequency": 0.60108
+      },
+      "Ga-71": {
+        "mass": 70.92470258,
+        "frequency": 0.39892
+      }
+    },
+    "mass": 69.7231
   },
   "Ge": {
     "appearance": "grayish-white",
-    "mass": 72.6308,
     "block": "p",
     "boil": 3106,
     "density": 5.323,
@@ -1328,11 +1713,33 @@
     ],
     "group": "Metalloid",
     "name": "Germanium",
-    "family": 14
+    "family": 14,
+    "isotopes": {
+      "Ge-70": {
+        "mass": 69.92424875,
+        "frequency": 0.2057
+      },
+      "Ge-72": {
+        "mass": 71.922075826,
+        "frequency": 0.2745
+      },
+      "Ge-73": {
+        "mass": 72.923458956,
+        "frequency": 0.0775
+      },
+      "Ge-74": {
+        "mass": 73.921177761,
+        "frequency": 0.365
+      },
+      "Ge-76": {
+        "mass": 75.921402726,
+        "frequency": 0.0773
+      }
+    },
+    "mass": 72.6308
   },
   "As": {
     "appearance": "metallic grey",
-    "mass": 74.9215956,
     "block": "p",
     "boil": null,
     "density": 5.727,
@@ -1362,11 +1769,17 @@
     ],
     "group": "Metalloid",
     "name": "Arsenic",
-    "family": 15
+    "family": 15,
+    "isotopes": {
+      "As-75": {
+        "mass": 74.92159457,
+        "frequency": 1
+      }
+    },
+    "mass": 74.9215956
   },
   "Se": {
     "appearance": "black, red, and gray (not pictured) allotropes",
-    "mass": 78.9718,
     "block": "p",
     "boil": 958,
     "density": 4.81,
@@ -1397,11 +1810,37 @@
     ],
     "group": "Polyatomic Non-Metal",
     "name": "Selenium",
-    "family": 16
+    "family": 16,
+    "isotopes": {
+      "Se-74": {
+        "mass": 73.922475934,
+        "frequency": 0.0089
+      },
+      "Se-76": {
+        "mass": 75.919213704,
+        "frequency": 0.0937
+      },
+      "Se-77": {
+        "mass": 76.919914154,
+        "frequency": 0.0763
+      },
+      "Se-78": {
+        "mass": 77.91730928,
+        "frequency": 0.2377
+      },
+      "Se-80": {
+        "mass": 79.9165218,
+        "frequency": 0.4961
+      },
+      "Se-82": {
+        "mass": 81.9166995,
+        "frequency": 0.0873
+      }
+    },
+    "mass": 78.9718
   },
   "Br": {
     "appearance": null,
-    "mass": 79.904,
     "block": "p",
     "boil": 332,
     "density": 3.1028,
@@ -1433,11 +1872,21 @@
     ],
     "group": "Diatomic Non-Metal",
     "name": "Bromine",
-    "family": 17
+    "family": 17,
+    "isotopes": {
+      "Br-79": {
+        "mass": 78.9183376,
+        "frequency": 0.5069
+      },
+      "Br-81": {
+        "mass": 80.9162897,
+        "frequency": 0.4931
+      }
+    },
+    "mass": 79.904
   },
   "Kr": {
     "appearance": "colorless gas, exhibiting a whitish glow in a high electric field",
-    "mass": 83.7982,
     "block": "p",
     "boil": 119.93,
     "density": 3.749,
@@ -1491,11 +1940,37 @@
     ],
     "group": "Noble Gas",
     "name": "Krypton",
-    "family": 18
+    "family": 18,
+    "isotopes": {
+      "Kr-78": {
+        "mass": 77.92036494,
+        "frequency": 0.00355
+      },
+      "Kr-80": {
+        "mass": 79.91637808,
+        "frequency": 0.02286
+      },
+      "Kr-82": {
+        "mass": 81.91348273,
+        "frequency": 0.11593
+      },
+      "Kr-83": {
+        "mass": 82.91412716,
+        "frequency": 0.115
+      },
+      "Kr-84": {
+        "mass": 83.9114977282,
+        "frequency": 0.56987
+      },
+      "Kr-86": {
+        "mass": 85.9106106269,
+        "frequency": 0.17279
+      }
+    },
+    "mass": 83.7982
   },
   "Rb": {
     "appearance": "grey white",
-    "mass": 85.46783,
     "block": "s",
     "boil": 961,
     "density": 1.532,
@@ -1530,11 +2005,21 @@
     ],
     "group": "Alkali Metal",
     "name": "Rubidium",
-    "family": 1
+    "family": 1,
+    "isotopes": {
+      "Rb-85": {
+        "mass": 84.9117897379,
+        "frequency": 0.7217
+      },
+      "Rb-87": {
+        "mass": 86.909180531,
+        "frequency": 0.2783
+      }
+    },
+    "mass": 85.46783
   },
   "Sr": {
     "appearance": null,
-    "mass": 87.621,
     "block": "s",
     "boil": 1650,
     "density": 2.64,
@@ -1570,11 +2055,29 @@
     ],
     "group": "Alkaline Earth Metal",
     "name": "Strontium",
-    "family": 2
+    "family": 2,
+    "isotopes": {
+      "Sr-84": {
+        "mass": 83.9134191,
+        "frequency": 0.0056
+      },
+      "Sr-86": {
+        "mass": 85.9092606,
+        "frequency": 0.0986
+      },
+      "Sr-87": {
+        "mass": 86.9088775,
+        "frequency": 0.07
+      },
+      "Sr-88": {
+        "mass": 87.9056125,
+        "frequency": 0.8258
+      }
+    },
+    "mass": 87.621
   },
   "Y": {
     "appearance": "silvery white",
-    "mass": 88.905842,
     "block": "d",
     "boil": 3203,
     "density": 4.472,
@@ -1611,11 +2114,17 @@
     ],
     "group": "Transition Metal",
     "name": "Yttrium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Y-89": {
+        "mass": 88.9058403,
+        "frequency": 1
+      }
+    },
+    "mass": 88.905842
   },
   "Zr": {
     "appearance": "silvery white",
-    "mass": 91.2242,
     "block": "d",
     "boil": 4650,
     "density": 6.52,
@@ -1646,11 +2155,33 @@
     ],
     "group": "Transition Metal",
     "name": "Zirconium",
-    "family": 4
+    "family": 4,
+    "isotopes": {
+      "Zr-90": {
+        "mass": 89.9046977,
+        "frequency": 0.5145
+      },
+      "Zr-91": {
+        "mass": 90.9056396,
+        "frequency": 0.1122
+      },
+      "Zr-92": {
+        "mass": 91.9050347,
+        "frequency": 0.1715
+      },
+      "Zr-94": {
+        "mass": 93.9063108,
+        "frequency": 0.1738
+      },
+      "Zr-96": {
+        "mass": 95.9082714,
+        "frequency": 0.028
+      }
+    },
+    "mass": 91.2242
   },
   "Nb": {
     "appearance": "gray metallic, bluish when oxidized",
-    "mass": 92.906372,
     "block": "d",
     "boil": 5017,
     "density": 8.57,
@@ -1682,11 +2213,17 @@
     ],
     "group": "Transition Metal",
     "name": "Niobium",
-    "family": 5
+    "family": 5,
+    "isotopes": {
+      "Nb-93": {
+        "mass": 92.906373,
+        "frequency": 1
+      }
+    },
+    "mass": 92.906372
   },
   "Mo": {
     "appearance": "gray metallic",
-    "mass": 95.951,
     "block": "d",
     "boil": 4912,
     "density": 10.28,
@@ -1741,7 +2278,38 @@
     ],
     "group": "Transition Metal",
     "name": "Molybdenum",
-    "family": 6
+    "family": 6,
+    "isotopes": {
+      "Mo-92": {
+        "mass": 91.90680796,
+        "frequency": 0.1453
+      },
+      "Mo-94": {
+        "mass": 93.9050849,
+        "frequency": 0.0915
+      },
+      "Mo-95": {
+        "mass": 94.90583877,
+        "frequency": 0.1584
+      },
+      "Mo-96": {
+        "mass": 95.90467612,
+        "frequency": 0.1667
+      },
+      "Mo-97": {
+        "mass": 96.90601812,
+        "frequency": 0.096
+      },
+      "Mo-98": {
+        "mass": 97.90540482,
+        "frequency": 0.2439
+      },
+      "Mo-100": {
+        "mass": 99.9074718,
+        "frequency": 0.0982
+      }
+    },
+    "mass": 95.951
   },
   "Tc": {
     "appearance": "shiny gray metal",
@@ -1773,11 +2341,24 @@
     ],
     "group": "Transition Metal",
     "name": "Technetium",
-    "family": 7
+    "family": 7,
+    "isotopes": {
+      "Tc-97": {
+        "mass": 96.9063667,
+        "frequency": 0
+      },
+      "Tc-98": {
+        "mass": 97.9072124,
+        "frequency": 0
+      },
+      "Tc-99": {
+        "mass": 98.9062508,
+        "frequency": 0
+      }
+    }
   },
   "Ru": {
     "appearance": "silvery white metallic",
-    "mass": 101.072,
     "block": "d",
     "boil": 4423,
     "density": 12.45,
@@ -1805,11 +2386,41 @@
     ],
     "group": "Transition Metal",
     "name": "Ruthenium",
-    "family": 8
+    "family": 8,
+    "isotopes": {
+      "Ru-96": {
+        "mass": 95.90759025,
+        "frequency": 0.0554
+      },
+      "Ru-98": {
+        "mass": 97.9052868,
+        "frequency": 0.0187
+      },
+      "Ru-99": {
+        "mass": 98.9059341,
+        "frequency": 0.1276
+      },
+      "Ru-100": {
+        "mass": 99.9042143,
+        "frequency": 0.126
+      },
+      "Ru-101": {
+        "mass": 100.9055769,
+        "frequency": 0.1706
+      },
+      "Ru-102": {
+        "mass": 101.9043441,
+        "frequency": 0.3155
+      },
+      "Ru-104": {
+        "mass": 103.9054275,
+        "frequency": 0.1862
+      }
+    },
+    "mass": 101.072
   },
   "Rh": {
     "appearance": "silvery white metallic",
-    "mass": 102.905502,
     "block": "d",
     "boil": 3968,
     "density": 12.41,
@@ -1837,11 +2448,17 @@
     ],
     "group": "Transition Metal",
     "name": "Rhodium",
-    "family": 9
+    "family": 9,
+    "isotopes": {
+      "Rh-103": {
+        "mass": 102.905498,
+        "frequency": 1
+      }
+    },
+    "mass": 102.905502
   },
   "Pd": {
     "appearance": "silvery white",
-    "mass": 106.421,
     "block": "d",
     "boil": 3236,
     "density": 12.023,
@@ -1868,11 +2485,37 @@
     ],
     "group": "Transition Metal",
     "name": "Palladium",
-    "family": 10
+    "family": 10,
+    "isotopes": {
+      "Pd-102": {
+        "mass": 101.9056022,
+        "frequency": 0.0102
+      },
+      "Pd-104": {
+        "mass": 103.9040305,
+        "frequency": 0.1114
+      },
+      "Pd-105": {
+        "mass": 104.9050796,
+        "frequency": 0.2233
+      },
+      "Pd-106": {
+        "mass": 105.9034804,
+        "frequency": 0.2733
+      },
+      "Pd-108": {
+        "mass": 107.9038916,
+        "frequency": 0.2646
+      },
+      "Pd-110": {
+        "mass": 109.9051722,
+        "frequency": 0.1172
+      }
+    },
+    "mass": 106.421
   },
   "Ag": {
     "appearance": "lustrous white metal",
-    "mass": 107.86822,
     "block": "d",
     "boil": 2435,
     "density": 10.49,
@@ -1900,11 +2543,21 @@
     ],
     "group": "Transition Metal",
     "name": "Silver",
-    "family": 11
+    "family": 11,
+    "isotopes": {
+      "Ag-107": {
+        "mass": 106.9050916,
+        "frequency": 0.51839
+      },
+      "Ag-109": {
+        "mass": 108.9047553,
+        "frequency": 0.48161
+      }
+    },
+    "mass": 107.86822
   },
   "Cd": {
     "appearance": "silvery bluish-gray metallic",
-    "mass": 112.4144,
     "block": "d",
     "boil": 1040,
     "density": 8.65,
@@ -1932,11 +2585,45 @@
     ],
     "group": "Transition Metal",
     "name": "Cadmium",
-    "family": 12
+    "family": 12,
+    "isotopes": {
+      "Cd-106": {
+        "mass": 105.9064599,
+        "frequency": 0.0125
+      },
+      "Cd-108": {
+        "mass": 107.9041834,
+        "frequency": 0.0089
+      },
+      "Cd-110": {
+        "mass": 109.90300661,
+        "frequency": 0.1249
+      },
+      "Cd-111": {
+        "mass": 110.90418287,
+        "frequency": 0.128
+      },
+      "Cd-112": {
+        "mass": 111.90276287,
+        "frequency": 0.2413
+      },
+      "Cd-113": {
+        "mass": 112.90440813,
+        "frequency": 0.1222
+      },
+      "Cd-114": {
+        "mass": 113.90336509,
+        "frequency": 0.2873
+      },
+      "Cd-116": {
+        "mass": 115.90476315,
+        "frequency": 0.0749
+      }
+    },
+    "mass": 112.4144
   },
   "In": {
     "appearance": "silvery lustrous gray",
-    "mass": 114.8181,
     "block": "p",
     "boil": 2345,
     "density": 7.31,
@@ -1965,11 +2652,21 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Indium",
-    "family": 13
+    "family": 13,
+    "isotopes": {
+      "In-113": {
+        "mass": 112.90406184,
+        "frequency": 0.0429
+      },
+      "In-115": {
+        "mass": 114.903878776,
+        "frequency": 0.9571
+      }
+    },
+    "mass": 114.8181
   },
   "Sn": {
     "appearance": "silvery-white (beta, β) or gray (alpha, α)",
-    "mass": 118.7107,
     "block": "p",
     "boil": 2875,
     "density": 7.365,
@@ -1999,11 +2696,53 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Tin",
-    "family": 14
+    "family": 14,
+    "isotopes": {
+      "Sn-112": {
+        "mass": 111.90482387,
+        "frequency": 0.0097
+      },
+      "Sn-114": {
+        "mass": 113.9027827,
+        "frequency": 0.0066
+      },
+      "Sn-115": {
+        "mass": 114.903344699,
+        "frequency": 0.0034
+      },
+      "Sn-116": {
+        "mass": 115.9017428,
+        "frequency": 0.1454
+      },
+      "Sn-117": {
+        "mass": 116.90295398,
+        "frequency": 0.0768
+      },
+      "Sn-118": {
+        "mass": 117.90160657,
+        "frequency": 0.2422
+      },
+      "Sn-119": {
+        "mass": 118.90331117,
+        "frequency": 0.0859
+      },
+      "Sn-120": {
+        "mass": 119.90220163,
+        "frequency": 0.3258
+      },
+      "Sn-122": {
+        "mass": 121.9034438,
+        "frequency": 0.0463
+      },
+      "Sn-124": {
+        "mass": 123.9052766,
+        "frequency": 0.0579
+      }
+    },
+    "mass": 118.7107
   },
   "Sb": {
     "appearance": "silvery lustrous gray",
-    "mass": 121.7601,
     "block": "p",
     "boil": 1908,
     "density": 6.697,
@@ -2034,11 +2773,21 @@
     ],
     "group": "Metalloid",
     "name": "Antimony",
-    "family": 15
+    "family": 15,
+    "isotopes": {
+      "Sb-121": {
+        "mass": 120.903812,
+        "frequency": 0.5721
+      },
+      "Sb-123": {
+        "mass": 122.9042132,
+        "frequency": 0.4279
+      }
+    },
+    "mass": 121.7601
   },
   "Te": {
     "appearance": null,
-    "mass": 127.603,
     "block": "p",
     "boil": 1261,
     "density": 6.24,
@@ -2070,11 +2819,45 @@
     ],
     "group": "Metalloid",
     "name": "Tellurium",
-    "family": 16
+    "family": 16,
+    "isotopes": {
+      "Te-120": {
+        "mass": 119.9040593,
+        "frequency": 0.0009
+      },
+      "Te-122": {
+        "mass": 121.9030435,
+        "frequency": 0.0255
+      },
+      "Te-123": {
+        "mass": 122.9042698,
+        "frequency": 0.0089
+      },
+      "Te-124": {
+        "mass": 123.9028171,
+        "frequency": 0.0474
+      },
+      "Te-125": {
+        "mass": 124.9044299,
+        "frequency": 0.0707
+      },
+      "Te-126": {
+        "mass": 125.9033109,
+        "frequency": 0.1884
+      },
+      "Te-128": {
+        "mass": 127.90446128,
+        "frequency": 0.3174
+      },
+      "Te-130": {
+        "mass": 129.906222748,
+        "frequency": 0.3408
+      }
+    },
+    "mass": 127.603
   },
   "I": {
     "appearance": "lustrous metallic gray, violet as a gas",
-    "mass": 126.904473,
     "block": "p",
     "boil": 457.4,
     "density": 4.933,
@@ -2102,11 +2885,17 @@
     ],
     "group": "Diatomic Non-Metal",
     "name": "Iodine",
-    "family": 17
+    "family": 17,
+    "isotopes": {
+      "I-127": {
+        "mass": 126.9044719,
+        "frequency": 1
+      }
+    },
+    "mass": 126.904473
   },
   "Xe": {
     "appearance": "colorless gas, exhibiting a blue glow when placed in a high voltage electric field",
-    "mass": 131.2936,
     "block": "p",
     "boil": 165.051,
     "density": 5.894,
@@ -2134,11 +2923,49 @@
     ],
     "group": "Noble Gas",
     "name": "Xenon",
-    "family": 18
+    "family": 18,
+    "isotopes": {
+      "Xe-124": {
+        "mass": 123.905892,
+        "frequency": 0.000952
+      },
+      "Xe-126": {
+        "mass": 125.9042983,
+        "frequency": 0.00089
+      },
+      "Xe-128": {
+        "mass": 127.903531,
+        "frequency": 0.019102
+      },
+      "Xe-129": {
+        "mass": 128.9047808611,
+        "frequency": 0.264006
+      },
+      "Xe-130": {
+        "mass": 129.903509349,
+        "frequency": 0.04071
+      },
+      "Xe-131": {
+        "mass": 130.90508406,
+        "frequency": 0.212324
+      },
+      "Xe-132": {
+        "mass": 131.9041550856,
+        "frequency": 0.269086
+      },
+      "Xe-134": {
+        "mass": 133.90539466,
+        "frequency": 0.104357
+      },
+      "Xe-136": {
+        "mass": 135.907214484,
+        "frequency": 0.088573
+      }
+    },
+    "mass": 131.2936
   },
   "Cs": {
     "appearance": "silvery gold",
-    "mass": 132.905451966,
     "block": "s",
     "boil": 944,
     "density": 1.93,
@@ -2167,11 +2994,17 @@
     ],
     "group": "Alkali Metal",
     "name": "Cesium",
-    "family": 1
+    "family": 1,
+    "isotopes": {
+      "Cs-133": {
+        "mass": 132.905451961,
+        "frequency": 1
+      }
+    },
+    "mass": 132.905451966
   },
   "Ba": {
     "appearance": null,
-    "mass": 137.3277,
     "block": "s",
     "boil": 2118,
     "density": 3.51,
@@ -2200,11 +3033,41 @@
     ],
     "group": "Alkaline Earth Metal",
     "name": "Barium",
-    "family": 2
+    "family": 2,
+    "isotopes": {
+      "Ba-130": {
+        "mass": 129.9063207,
+        "frequency": 0.00106
+      },
+      "Ba-132": {
+        "mass": 131.9050611,
+        "frequency": 0.00101
+      },
+      "Ba-134": {
+        "mass": 133.90450818,
+        "frequency": 0.02417
+      },
+      "Ba-135": {
+        "mass": 134.90568838,
+        "frequency": 0.06592
+      },
+      "Ba-136": {
+        "mass": 135.90457573,
+        "frequency": 0.07854
+      },
+      "Ba-137": {
+        "mass": 136.90582714,
+        "frequency": 0.11232
+      },
+      "Ba-138": {
+        "mass": 137.905247,
+        "frequency": 0.71698
+      }
+    },
+    "mass": 137.3277
   },
   "La": {
     "appearance": "silvery white",
-    "mass": 138.905477,
     "block": "f",
     "boil": 3737,
     "density": 6.162,
@@ -2235,11 +3098,21 @@
     ],
     "group": "Lanthanide",
     "name": "Lanthanum",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "La-138": {
+        "mass": 137.9071149,
+        "frequency": 0.0008881
+      },
+      "La-139": {
+        "mass": 138.9063563,
+        "frequency": 0.9991119
+      }
+    },
+    "mass": 138.905477
   },
   "Ce": {
     "appearance": "silvery white",
-    "mass": 140.1161,
     "block": "f",
     "boil": 3716,
     "density": 6.77,
@@ -2271,11 +3144,29 @@
     ],
     "group": "Lanthanide",
     "name": "Cerium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Ce-136": {
+        "mass": 135.90712921,
+        "frequency": 0.00185
+      },
+      "Ce-138": {
+        "mass": 137.905991,
+        "frequency": 0.00251
+      },
+      "Ce-140": {
+        "mass": 139.9054431,
+        "frequency": 0.8845
+      },
+      "Ce-142": {
+        "mass": 141.9092504,
+        "frequency": 0.11114
+      }
+    },
+    "mass": 140.1161
   },
   "Pr": {
     "appearance": "grayish white",
-    "mass": 140.907662,
     "block": "f",
     "boil": 3403,
     "density": 6.77,
@@ -2306,11 +3197,17 @@
     ],
     "group": "Lanthanide",
     "name": "Praseodymium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Pr-141": {
+        "mass": 140.9076576,
+        "frequency": 1
+      }
+    },
+    "mass": 140.907662
   },
   "Nd": {
     "appearance": "silvery white",
-    "mass": 144.2423,
     "block": "f",
     "boil": 3347,
     "density": 7.01,
@@ -2340,7 +3237,38 @@
     ],
     "group": "Lanthanide",
     "name": "Neodymium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Nd-142": {
+        "mass": 141.907729,
+        "frequency": 0.27152
+      },
+      "Nd-143": {
+        "mass": 142.90982,
+        "frequency": 0.12174
+      },
+      "Nd-144": {
+        "mass": 143.910093,
+        "frequency": 0.23798
+      },
+      "Nd-145": {
+        "mass": 144.9125793,
+        "frequency": 0.08293
+      },
+      "Nd-146": {
+        "mass": 145.9131226,
+        "frequency": 0.17189
+      },
+      "Nd-148": {
+        "mass": 147.9168993,
+        "frequency": 0.05756
+      },
+      "Nd-150": {
+        "mass": 149.9209022,
+        "frequency": 0.05638
+      }
+    },
+    "mass": 144.2423
   },
   "Pm": {
     "appearance": "metallic",
@@ -2374,11 +3302,20 @@
     ],
     "group": "Lanthanide",
     "name": "Promethium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Pm-145": {
+        "mass": 144.9127559,
+        "frequency": 0
+      },
+      "Pm-147": {
+        "mass": 146.915145,
+        "frequency": 0
+      }
+    }
   },
   "Sm": {
     "appearance": "silvery white",
-    "mass": 150.362,
     "block": "f",
     "boil": 2173,
     "density": 7.52,
@@ -2408,11 +3345,41 @@
     ],
     "group": "Lanthanide",
     "name": "Samarium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Sm-144": {
+        "mass": 143.9120065,
+        "frequency": 0.0307
+      },
+      "Sm-147": {
+        "mass": 146.9149044,
+        "frequency": 0.1499
+      },
+      "Sm-148": {
+        "mass": 147.9148292,
+        "frequency": 0.1124
+      },
+      "Sm-149": {
+        "mass": 148.9171921,
+        "frequency": 0.1382
+      },
+      "Sm-150": {
+        "mass": 149.9172829,
+        "frequency": 0.0738
+      },
+      "Sm-152": {
+        "mass": 151.9197397,
+        "frequency": 0.2675
+      },
+      "Sm-154": {
+        "mass": 153.9222169,
+        "frequency": 0.2275
+      }
+    },
+    "mass": 150.362
   },
   "Eu": {
     "appearance": null,
-    "mass": 151.9641,
     "block": "f",
     "boil": 1802,
     "density": 5.264,
@@ -2442,11 +3409,21 @@
     ],
     "group": "Lanthanide",
     "name": "Europium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Eu-151": {
+        "mass": 150.9198578,
+        "frequency": 0.4781
+      },
+      "Eu-153": {
+        "mass": 152.921238,
+        "frequency": 0.5219
+      }
+    },
+    "mass": 151.9641
   },
   "Gd": {
     "appearance": "silvery white",
-    "mass": 157.253,
     "block": "f",
     "boil": 3273,
     "density": 7.9,
@@ -2476,11 +3453,41 @@
     ],
     "group": "Lanthanide",
     "name": "Gadolinium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Gd-152": {
+        "mass": 151.9197995,
+        "frequency": 0.002
+      },
+      "Gd-154": {
+        "mass": 153.9208741,
+        "frequency": 0.0218
+      },
+      "Gd-155": {
+        "mass": 154.9226305,
+        "frequency": 0.148
+      },
+      "Gd-156": {
+        "mass": 155.9221312,
+        "frequency": 0.2047
+      },
+      "Gd-157": {
+        "mass": 156.9239686,
+        "frequency": 0.1565
+      },
+      "Gd-158": {
+        "mass": 157.9241123,
+        "frequency": 0.2484
+      },
+      "Gd-160": {
+        "mass": 159.9270624,
+        "frequency": 0.2186
+      }
+    },
+    "mass": 157.253
   },
   "Tb": {
     "appearance": "silvery white",
-    "mass": 158.925352,
     "block": "f",
     "boil": 3396,
     "density": 8.23,
@@ -2510,11 +3517,17 @@
     ],
     "group": "Lanthanide",
     "name": "Terbium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Tb-159": {
+        "mass": 158.9253547,
+        "frequency": 1
+      }
+    },
+    "mass": 158.925352
   },
   "Dy": {
     "appearance": "silvery white",
-    "mass": 162.5001,
     "block": "f",
     "boil": 2840,
     "density": 8.54,
@@ -2544,11 +3557,41 @@
     ],
     "group": "Lanthanide",
     "name": "Dysprosium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Dy-156": {
+        "mass": 155.9242847,
+        "frequency": 0.00056
+      },
+      "Dy-158": {
+        "mass": 157.9244159,
+        "frequency": 0.00095
+      },
+      "Dy-160": {
+        "mass": 159.9252046,
+        "frequency": 0.02329
+      },
+      "Dy-161": {
+        "mass": 160.9269405,
+        "frequency": 0.18889
+      },
+      "Dy-162": {
+        "mass": 161.9268056,
+        "frequency": 0.25475
+      },
+      "Dy-163": {
+        "mass": 162.9287383,
+        "frequency": 0.24896
+      },
+      "Dy-164": {
+        "mass": 163.9291819,
+        "frequency": 0.2826
+      }
+    },
+    "mass": 162.5001
   },
   "Ho": {
     "appearance": "silvery white",
-    "mass": 164.930332,
     "block": "f",
     "boil": 2873,
     "density": 8.79,
@@ -2578,11 +3621,17 @@
     ],
     "group": "Lanthanide",
     "name": "Holmium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Ho-165": {
+        "mass": 164.9303288,
+        "frequency": 1
+      }
+    },
+    "mass": 164.930332
   },
   "Er": {
     "appearance": "silvery white",
-    "mass": 167.2593,
     "block": "f",
     "boil": 3141,
     "density": 9.066,
@@ -2612,11 +3661,37 @@
     ],
     "group": "Lanthanide",
     "name": "Erbium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Er-162": {
+        "mass": 161.9287884,
+        "frequency": 0.00139
+      },
+      "Er-164": {
+        "mass": 163.9292088,
+        "frequency": 0.01601
+      },
+      "Er-166": {
+        "mass": 165.9302995,
+        "frequency": 0.33503
+      },
+      "Er-167": {
+        "mass": 166.9320546,
+        "frequency": 0.22869
+      },
+      "Er-168": {
+        "mass": 167.9323767,
+        "frequency": 0.26978
+      },
+      "Er-170": {
+        "mass": 169.9354702,
+        "frequency": 0.1491
+      }
+    },
+    "mass": 167.2593
   },
   "Tm": {
     "appearance": "silvery gray",
-    "mass": 168.934222,
     "block": "f",
     "boil": 2223,
     "density": 9.32,
@@ -2646,11 +3721,17 @@
     ],
     "group": "Lanthanide",
     "name": "Thulium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Tm-169": {
+        "mass": 168.9342179,
+        "frequency": 1
+      }
+    },
+    "mass": 168.934222
   },
   "Yb": {
     "appearance": null,
-    "mass": 173.0451,
     "block": "f",
     "boil": 1469,
     "density": 6.9,
@@ -2680,11 +3761,41 @@
     ],
     "group": "Lanthanide",
     "name": "Ytterbium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Yb-168": {
+        "mass": 167.9338896,
+        "frequency": 0.00123
+      },
+      "Yb-170": {
+        "mass": 169.9347664,
+        "frequency": 0.02982
+      },
+      "Yb-171": {
+        "mass": 170.9363302,
+        "frequency": 0.1409
+      },
+      "Yb-172": {
+        "mass": 171.9363859,
+        "frequency": 0.2168
+      },
+      "Yb-173": {
+        "mass": 172.9382151,
+        "frequency": 0.16103
+      },
+      "Yb-174": {
+        "mass": 173.9388664,
+        "frequency": 0.32026
+      },
+      "Yb-176": {
+        "mass": 175.9425764,
+        "frequency": 0.12996
+      }
+    },
+    "mass": 173.0451
   },
   "Lu": {
     "appearance": "silvery white",
-    "mass": 174.96681,
     "block": "d",
     "boil": 3675,
     "density": 9.841,
@@ -2715,11 +3826,21 @@
     ],
     "group": "Lanthanide",
     "name": "Lutetium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Lu-175": {
+        "mass": 174.9407752,
+        "frequency": 0.97401
+      },
+      "Lu-176": {
+        "mass": 175.9426897,
+        "frequency": 0.02599
+      }
+    },
+    "mass": 174.96681
   },
   "Hf": {
     "appearance": "steel gray",
-    "mass": 178.492,
     "block": "d",
     "boil": 4876,
     "density": 13.31,
@@ -2749,11 +3870,37 @@
     ],
     "group": "Transition Metal",
     "name": "Hafnium",
-    "family": 4
+    "family": 4,
+    "isotopes": {
+      "Hf-174": {
+        "mass": 173.9400461,
+        "frequency": 0.0016
+      },
+      "Hf-176": {
+        "mass": 175.9414076,
+        "frequency": 0.0526
+      },
+      "Hf-177": {
+        "mass": 176.9432277,
+        "frequency": 0.186
+      },
+      "Hf-178": {
+        "mass": 177.9437058,
+        "frequency": 0.2728
+      },
+      "Hf-179": {
+        "mass": 178.9458232,
+        "frequency": 0.1362
+      },
+      "Hf-180": {
+        "mass": 179.946557,
+        "frequency": 0.3508
+      }
+    },
+    "mass": 178.492
   },
   "Ta": {
     "appearance": "gray blue",
-    "mass": 180.947882,
     "block": "d",
     "boil": 5731,
     "density": 16.69,
@@ -2781,11 +3928,21 @@
     ],
     "group": "Transition Metal",
     "name": "Tantalum",
-    "family": 5
+    "family": 5,
+    "isotopes": {
+      "Ta-180": {
+        "mass": 179.9474648,
+        "frequency": 0.0001201
+      },
+      "Ta-181": {
+        "mass": 180.9479958,
+        "frequency": 0.9998799
+      }
+    },
+    "mass": 180.947882
   },
   "W": {
     "appearance": "grayish white, lustrous",
-    "mass": 183.841,
     "block": "d",
     "boil": 6203,
     "density": 19.25,
@@ -2813,11 +3970,33 @@
     ],
     "group": "Transition Metal",
     "name": "Tungsten",
-    "family": 6
+    "family": 6,
+    "isotopes": {
+      "W-180": {
+        "mass": 179.9467108,
+        "frequency": 0.0012
+      },
+      "W-182": {
+        "mass": 181.94820394,
+        "frequency": 0.265
+      },
+      "W-183": {
+        "mass": 182.95022275,
+        "frequency": 0.1431
+      },
+      "W-184": {
+        "mass": 183.95093092,
+        "frequency": 0.3064
+      },
+      "W-186": {
+        "mass": 185.9543628,
+        "frequency": 0.2843
+      }
+    },
+    "mass": 183.841
   },
   "Re": {
     "appearance": "silvery-grayish",
-    "mass": 186.2071,
     "block": "d",
     "boil": 5869,
     "density": 21.02,
@@ -2847,11 +4026,21 @@
     ],
     "group": "Transition Metal",
     "name": "Rhenium",
-    "family": 7
+    "family": 7,
+    "isotopes": {
+      "Re-185": {
+        "mass": 184.9529545,
+        "frequency": 0.374
+      },
+      "Re-187": {
+        "mass": 186.9557501,
+        "frequency": 0.626
+      }
+    },
+    "mass": 186.2071
   },
   "Os": {
     "appearance": "silvery, blue cast",
-    "mass": 190.233,
     "block": "d",
     "boil": 5285,
     "density": 22.59,
@@ -2879,11 +4068,41 @@
     ],
     "group": "Transition Metal",
     "name": "Osmium",
-    "family": 8
+    "family": 8,
+    "isotopes": {
+      "Os-184": {
+        "mass": 183.9524885,
+        "frequency": 0.0002
+      },
+      "Os-186": {
+        "mass": 185.953835,
+        "frequency": 0.0159
+      },
+      "Os-187": {
+        "mass": 186.9557474,
+        "frequency": 0.0196
+      },
+      "Os-188": {
+        "mass": 187.9558352,
+        "frequency": 0.1324
+      },
+      "Os-189": {
+        "mass": 188.9581442,
+        "frequency": 0.1615
+      },
+      "Os-190": {
+        "mass": 189.9584437,
+        "frequency": 0.2626
+      },
+      "Os-192": {
+        "mass": 191.961477,
+        "frequency": 0.4078
+      }
+    },
+    "mass": 190.233
   },
   "Ir": {
     "appearance": "silvery white",
-    "mass": 192.2173,
     "block": "d",
     "boil": 4403,
     "density": 22.56,
@@ -2911,11 +4130,21 @@
     ],
     "group": "Transition Metal",
     "name": "Iridium",
-    "family": 9
+    "family": 9,
+    "isotopes": {
+      "Ir-191": {
+        "mass": 190.9605893,
+        "frequency": 0.373
+      },
+      "Ir-193": {
+        "mass": 192.9629216,
+        "frequency": 0.627
+      }
+    },
+    "mass": 192.2173
   },
   "Pt": {
     "appearance": "silvery white",
-    "mass": 195.0849,
     "block": "d",
     "boil": 4098,
     "density": 21.45,
@@ -2943,11 +4172,37 @@
     ],
     "group": "Transition Metal",
     "name": "Platinum",
-    "family": 10
+    "family": 10,
+    "isotopes": {
+      "Pt-190": {
+        "mass": 189.9599297,
+        "frequency": 0.00012
+      },
+      "Pt-192": {
+        "mass": 191.9610387,
+        "frequency": 0.00782
+      },
+      "Pt-194": {
+        "mass": 193.9626809,
+        "frequency": 0.3286
+      },
+      "Pt-195": {
+        "mass": 194.9647917,
+        "frequency": 0.3378
+      },
+      "Pt-196": {
+        "mass": 195.96495209,
+        "frequency": 0.2521
+      },
+      "Pt-198": {
+        "mass": 197.9678949,
+        "frequency": 0.07356
+      }
+    },
+    "mass": 195.0849
   },
   "Au": {
     "appearance": "metallic yellow",
-    "mass": 196.9665695,
     "block": "d",
     "boil": 3243,
     "density": 19.3,
@@ -2975,11 +4230,17 @@
     ],
     "group": "Transition Metal",
     "name": "Gold",
-    "family": 11
+    "family": 11,
+    "isotopes": {
+      "Au-197": {
+        "mass": 196.96656879,
+        "frequency": 1
+      }
+    },
+    "mass": 196.9665695
   },
   "Hg": {
     "appearance": "silvery",
-    "mass": 200.5923,
     "block": "d",
     "boil": 629.88,
     "density": 13.534,
@@ -3008,11 +4269,41 @@
     ],
     "group": "Transition Metal",
     "name": "Mercury",
-    "family": 12
+    "family": 12,
+    "isotopes": {
+      "Hg-196": {
+        "mass": 195.9658326,
+        "frequency": 0.0015
+      },
+      "Hg-198": {
+        "mass": 197.9667686,
+        "frequency": 0.0997
+      },
+      "Hg-199": {
+        "mass": 198.96828064,
+        "frequency": 0.1687
+      },
+      "Hg-200": {
+        "mass": 199.96832659,
+        "frequency": 0.231
+      },
+      "Hg-201": {
+        "mass": 200.97030284,
+        "frequency": 0.1318
+      },
+      "Hg-202": {
+        "mass": 201.9706434,
+        "frequency": 0.2986
+      },
+      "Hg-204": {
+        "mass": 203.97349398,
+        "frequency": 0.0687
+      }
+    },
+    "mass": 200.5923
   },
   "Tl": {
     "appearance": "silvery white",
-    "mass": 204.38,
     "block": "p",
     "boil": 1746,
     "density": 11.85,
@@ -3041,11 +4332,21 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Thallium",
-    "family": 13
+    "family": 13,
+    "isotopes": {
+      "Tl-203": {
+        "mass": 202.9723446,
+        "frequency": 0.2952
+      },
+      "Tl-205": {
+        "mass": 204.9744278,
+        "frequency": 0.7048
+      }
+    },
+    "mass": 204.38
   },
   "Pb": {
     "appearance": "metallic gray",
-    "mass": 207.21,
     "block": "p",
     "boil": 2022,
     "density": 11.34,
@@ -3076,11 +4377,29 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Lead",
-    "family": 14
+    "family": 14,
+    "isotopes": {
+      "Pb-204": {
+        "mass": 203.973044,
+        "frequency": 0.014
+      },
+      "Pb-206": {
+        "mass": 205.9744657,
+        "frequency": 0.241
+      },
+      "Pb-207": {
+        "mass": 206.9758973,
+        "frequency": 0.221
+      },
+      "Pb-208": {
+        "mass": 207.9766525,
+        "frequency": 0.524
+      }
+    },
+    "mass": 207.21
   },
   "Bi": {
     "appearance": "lustrous silver",
-    "mass": 208.980401,
     "block": "p",
     "boil": 1837,
     "density": 9.78,
@@ -3112,7 +4431,14 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Bismuth",
-    "family": 15
+    "family": 15,
+    "isotopes": {
+      "Bi-209": {
+        "mass": 208.9803991,
+        "frequency": 1
+      }
+    },
+    "mass": 208.980401
   },
   "Po": {
     "appearance": "silvery",
@@ -3143,7 +4469,17 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Polonium",
-    "family": 16
+    "family": 16,
+    "isotopes": {
+      "Po-209": {
+        "mass": 208.9824308,
+        "frequency": 0
+      },
+      "Po-210": {
+        "mass": 209.9828741,
+        "frequency": 0
+      }
+    }
   },
   "At": {
     "appearance": "unknown, probably metallic",
@@ -3174,7 +4510,17 @@
     ],
     "group": "Metalloid",
     "name": "Astatine",
-    "family": 17
+    "family": 17,
+    "isotopes": {
+      "At-210": {
+        "mass": 209.9871479,
+        "frequency": 0
+      },
+      "At-211": {
+        "mass": 210.9874966,
+        "frequency": 0
+      }
+    }
   },
   "Rn": {
     "appearance": "colorless gas, occasionally glows green or red in discharge tubes",
@@ -3205,7 +4551,21 @@
     ],
     "group": "Noble Gas",
     "name": "Radon",
-    "family": 18
+    "family": 18,
+    "isotopes": {
+      "Rn-211": {
+        "mass": 210.9906011,
+        "frequency": 0
+      },
+      "Rn-220": {
+        "mass": 220.0113941,
+        "frequency": 0
+      },
+      "Rn-222": {
+        "mass": 222.0175782,
+        "frequency": 0
+      }
+    }
   },
   "Fr": {
     "appearance": null,
@@ -3237,7 +4597,13 @@
     ],
     "group": "Alkali Metal",
     "name": "Francium",
-    "family": 1
+    "family": 1,
+    "isotopes": {
+      "Fr-223": {
+        "mass": 223.019736,
+        "frequency": 0
+      }
+    }
   },
   "Ra": {
     "appearance": "silvery white metallic",
@@ -3270,7 +4636,25 @@
     ],
     "group": "Alkaline Earth Metal",
     "name": "Radium",
-    "family": 2
+    "family": 2,
+    "isotopes": {
+      "Ra-223": {
+        "mass": 223.0185023,
+        "frequency": 0
+      },
+      "Ra-224": {
+        "mass": 224.020212,
+        "frequency": 0
+      },
+      "Ra-226": {
+        "mass": 226.0254103,
+        "frequency": 0
+      },
+      "Ra-228": {
+        "mass": 228.0310707,
+        "frequency": 0
+      }
+    }
   },
   "Ac": {
     "appearance": null,
@@ -3303,11 +4687,16 @@
     ],
     "group": "Actinide",
     "name": "Actinium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Ac-227": {
+        "mass": 227.0277523,
+        "frequency": 0
+      }
+    }
   },
   "Th": {
     "appearance": "silvery, often with black tarnish",
-    "mass": 232.03774,
     "block": "f",
     "boil": 5061,
     "density": 11.724,
@@ -3338,11 +4727,21 @@
     ],
     "group": "Actinide",
     "name": "Thorium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Th-230": {
+        "mass": 230.0331341,
+        "frequency": 0
+      },
+      "Th-232": {
+        "mass": 232.0380558,
+        "frequency": 1
+      }
+    },
+    "mass": 232.03774
   },
   "Pa": {
     "appearance": "bright, silvery metallic luster",
-    "mass": 231.035882,
     "block": "f",
     "boil": 4300,
     "density": 15.37,
@@ -3370,11 +4769,17 @@
     ],
     "group": "Actinide",
     "name": "Protactinium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Pa-231": {
+        "mass": 231.0358842,
+        "frequency": 1
+      }
+    },
+    "mass": 231.035882
   },
   "U": {
     "appearance": null,
-    "mass": 238.028913,
     "block": "f",
     "boil": 4404,
     "density": 19.1,
@@ -3403,7 +4808,30 @@
     ],
     "group": "Actinide",
     "name": "Uranium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "U-233": {
+        "mass": 233.0396355,
+        "frequency": 0
+      },
+      "U-234": {
+        "mass": 234.0409523,
+        "frequency": 0.000054
+      },
+      "U-235": {
+        "mass": 235.0439301,
+        "frequency": 0.007204
+      },
+      "U-236": {
+        "mass": 236.0455682,
+        "frequency": 0
+      },
+      "U-238": {
+        "mass": 238.0507884,
+        "frequency": 0.992742
+      }
+    },
+    "mass": 238.028913
   },
   "Np": {
     "appearance": "silvery metallic",
@@ -3435,7 +4863,17 @@
     ],
     "group": "Actinide",
     "name": "Neptunium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Np-236": {
+        "mass": 236.04657,
+        "frequency": 0
+      },
+      "Np-237": {
+        "mass": 237.0481736,
+        "frequency": 0
+      }
+    }
   },
   "Pu": {
     "appearance": "silvery white, tarnishing to dark gray in air",
@@ -3467,7 +4905,33 @@
     ],
     "group": "Actinide",
     "name": "Plutonium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Pu-238": {
+        "mass": 238.0495601,
+        "frequency": 0
+      },
+      "Pu-239": {
+        "mass": 239.0521636,
+        "frequency": 0
+      },
+      "Pu-240": {
+        "mass": 240.0538138,
+        "frequency": 0
+      },
+      "Pu-241": {
+        "mass": 241.0568517,
+        "frequency": 0
+      },
+      "Pu-242": {
+        "mass": 242.0587428,
+        "frequency": 0
+      },
+      "Pu-244": {
+        "mass": 244.0642053,
+        "frequency": 0
+      }
+    }
   },
   "Am": {
     "appearance": "silvery white",
@@ -3499,7 +4963,17 @@
     ],
     "group": "Actinide",
     "name": "Americium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Am-241": {
+        "mass": 241.0568293,
+        "frequency": 0
+      },
+      "Am-243": {
+        "mass": 243.0613813,
+        "frequency": 0
+      }
+    }
   },
   "Cm": {
     "appearance": "silvery metallic, glows purple in the dark",
@@ -3531,7 +5005,33 @@
     ],
     "group": "Actinide",
     "name": "Curium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Cm-243": {
+        "mass": 243.0613893,
+        "frequency": 0
+      },
+      "Cm-244": {
+        "mass": 244.0627528,
+        "frequency": 0
+      },
+      "Cm-245": {
+        "mass": 245.0654915,
+        "frequency": 0
+      },
+      "Cm-246": {
+        "mass": 246.0672238,
+        "frequency": 0
+      },
+      "Cm-247": {
+        "mass": 247.0703541,
+        "frequency": 0
+      },
+      "Cm-248": {
+        "mass": 248.0723499,
+        "frequency": 0
+      }
+    }
   },
   "Bk": {
     "appearance": "silvery",
@@ -3563,7 +5063,17 @@
     ],
     "group": "Actinide",
     "name": "Berkelium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Bk-247": {
+        "mass": 247.0703073,
+        "frequency": 0
+      },
+      "Bk-249": {
+        "mass": 249.0749877,
+        "frequency": 0
+      }
+    }
   },
   "Cf": {
     "appearance": "silvery",
@@ -3595,7 +5105,25 @@
     ],
     "group": "Actinide",
     "name": "Californium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Cf-249": {
+        "mass": 249.0748539,
+        "frequency": 0
+      },
+      "Cf-250": {
+        "mass": 250.0764062,
+        "frequency": 0
+      },
+      "Cf-251": {
+        "mass": 251.0795886,
+        "frequency": 0
+      },
+      "Cf-252": {
+        "mass": 252.0816272,
+        "frequency": 0
+      }
+    }
   },
   "Es": {
     "appearance": "silver-colored",
@@ -3627,7 +5155,13 @@
     ],
     "group": "Actinide",
     "name": "Einsteinium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Es-252": {
+        "mass": 252.08298,
+        "frequency": 0
+      }
+    }
   },
   "Fm": {
     "appearance": null,
@@ -3659,7 +5193,13 @@
     ],
     "group": "Actinide",
     "name": "Fermium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Fm-257": {
+        "mass": 257.0951061,
+        "frequency": 0
+      }
+    }
   },
   "Md": {
     "appearance": null,
@@ -3691,7 +5231,17 @@
     ],
     "group": "Actinide",
     "name": "Mendelevium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Md-258": {
+        "mass": 258.0984315,
+        "frequency": 0
+      },
+      "Md-260": {
+        "mass": 260.10365,
+        "frequency": 0
+      }
+    }
   },
   "No": {
     "appearance": null,
@@ -3723,7 +5273,13 @@
     ],
     "group": "Actinide",
     "name": "Nobelium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "No-259": {
+        "mass": 259.10103,
+        "frequency": 0
+      }
+    }
   },
   "Lr": {
     "appearance": null,
@@ -3755,7 +5311,13 @@
     ],
     "group": "Actinide",
     "name": "Lawrencium",
-    "family": 3
+    "family": 3,
+    "isotopes": {
+      "Lr-262": {
+        "mass": 262.10961,
+        "frequency": 0
+      }
+    }
   },
   "Rf": {
     "appearance": null,
@@ -3787,7 +5349,13 @@
     ],
     "group": "Transition Metal",
     "name": "Rutherfordium",
-    "family": 4
+    "family": 4,
+    "isotopes": {
+      "Rf-267": {
+        "mass": 267.12179,
+        "frequency": 0
+      }
+    }
   },
   "Db": {
     "appearance": null,
@@ -3817,7 +5385,13 @@
     ],
     "group": "Transition Metal",
     "name": "Dubnium",
-    "family": 5
+    "family": 5,
+    "isotopes": {
+      "Db-268": {
+        "mass": 268.12567,
+        "frequency": 0
+      }
+    }
   },
   "Sg": {
     "appearance": null,
@@ -3847,7 +5421,13 @@
     ],
     "group": "Transition Metal",
     "name": "Seaborgium",
-    "family": 6
+    "family": 6,
+    "isotopes": {
+      "Sg-271": {
+        "mass": 271.13393,
+        "frequency": 0
+      }
+    }
   },
   "Bh": {
     "appearance": null,
@@ -3877,7 +5457,13 @@
     ],
     "group": "Transition Metal",
     "name": "Bohrium",
-    "family": 7
+    "family": 7,
+    "isotopes": {
+      "Bh-272": {
+        "mass": 272.13826,
+        "frequency": 0
+      }
+    }
   },
   "Hs": {
     "appearance": null,
@@ -3907,7 +5493,13 @@
     ],
     "group": "Transition Metal",
     "name": "Hassium",
-    "family": 8
+    "family": 8,
+    "isotopes": {
+      "Hs-270": {
+        "mass": 270.13429,
+        "frequency": 0
+      }
+    }
   },
   "Mt": {
     "appearance": null,
@@ -3937,7 +5529,13 @@
     ],
     "group": "Unknown",
     "name": "Meitnerium",
-    "family": 9
+    "family": 9,
+    "isotopes": {
+      "Mt-276": {
+        "mass": 276.15159,
+        "frequency": 0
+      }
+    }
   },
   "Ds": {
     "appearance": null,
@@ -3967,7 +5565,13 @@
     ],
     "group": "Unknown",
     "name": "Darmstadtium",
-    "family": 10
+    "family": 10,
+    "isotopes": {
+      "Ds-281": {
+        "mass": 281.16451,
+        "frequency": 0
+      }
+    }
   },
   "Rg": {
     "appearance": null,
@@ -3997,7 +5601,13 @@
     ],
     "group": "Unknown",
     "name": "Roentgenium",
-    "family": 11
+    "family": 11,
+    "isotopes": {
+      "Rg-280": {
+        "mass": 280.16514,
+        "frequency": 0
+      }
+    }
   },
   "Cn": {
     "appearance": null,
@@ -4027,7 +5637,13 @@
     ],
     "group": "Transition Metal",
     "name": "Copernicium",
-    "family": 12
+    "family": 12,
+    "isotopes": {
+      "Cn-285": {
+        "mass": 285.17712,
+        "frequency": 0
+      }
+    }
   },
   "Nh": {
     "appearance": null,
@@ -4057,7 +5673,13 @@
     ],
     "group": "Unknown",
     "name": "Nihonium",
-    "family": 13
+    "family": 13,
+    "isotopes": {
+      "Nh-284": {
+        "mass": 284.17873,
+        "frequency": 0
+      }
+    }
   },
   "Fl": {
     "appearance": null,
@@ -4087,7 +5709,13 @@
     ],
     "group": "Post-Transition Metal",
     "name": "Flerovium",
-    "family": 14
+    "family": 14,
+    "isotopes": {
+      "Fl-289": {
+        "mass": 289.19042,
+        "frequency": 0
+      }
+    }
   },
   "Mc": {
     "appearance": null,
@@ -4117,7 +5745,13 @@
     ],
     "group": "Unknown",
     "name": "Moscovium",
-    "family": 15
+    "family": 15,
+    "isotopes": {
+      "Mc-288": {
+        "mass": 288.19274,
+        "frequency": 0
+      }
+    }
   },
   "Lv": {
     "appearance": null,
@@ -4147,7 +5781,13 @@
     ],
     "group": "Unknown",
     "name": "Livermorium",
-    "family": 16
+    "family": 16,
+    "isotopes": {
+      "Lv-293": {
+        "mass": 293.20449,
+        "frequency": 0
+      }
+    }
   },
   "Ts": {
     "appearance": null,
@@ -4177,7 +5817,13 @@
     ],
     "group": "Unknown",
     "name": "Tennessine",
-    "family": 17
+    "family": 17,
+    "isotopes": {
+      "Ts-292": {
+        "mass": 292.20746,
+        "frequency": 0
+      }
+    }
   },
   "Og": {
     "appearance": null,
@@ -4207,37 +5853,12 @@
     ],
     "group": "Unknown",
     "name": "Oganesson",
-    "family": 18
-  },
-  "Uue": {
-    "appearance": null,
-    "mass": 315,
-    "block": "s",
-    "boil": 630,
-    "density": 3,
-    "discoverer": "GSI Helmholtz Centre for Heavy Ion Research",
-    "electron_affinity": 63.87,
-    "electron_configuration": "[Og] 8s1",
-    "electronegativity": null,
-    "ionization_energies": [],
-    "melt": null,
-    "molar_heat": null,
-    "namer": null,
-    "number": 119,
-    "period": 8,
-    "phase": "Solid",
-    "shells": [
-      2,
-      8,
-      18,
-      32,
-      32,
-      18,
-      8,
-      1
-    ],
-    "group": "Unknown",
-    "name": "Ununennium",
-    "family": 1
+    "family": 18,
+    "isotopes": {
+      "Og-294": {
+        "mass": 294.21392,
+        "frequency": 0
+      }
+    }
   }
 }

@@ -4,7 +4,7 @@
   top: 0px;
   /* width: 100vw;
   height: 100vh; */
-  z-index: 1;
+  z-index: 3;
 }
 
 .draggables {
@@ -46,6 +46,16 @@
 
 .draggables.minimized {
   height: 20px !important;
+}
+
+.draggables.brights {
+  filter: brightness(140%);
+}
+
+.draggables.unbrights {
+  filter: brightness(100%);
+  transition-property: filter;
+  transition-duration: 100ms;
 }
 
 .draggable-headers {
@@ -135,7 +145,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 55px;
+  /* width: 100%; */
   height: 55px;
   font-size: 40px;
   text-align: center;
@@ -143,13 +153,21 @@
 
 .large-element-numbers {
   top: 0px;
-  left: 4px;
+  left: 0px;
+  padding: 0px 4px;
 }
 
 .large-element-masses {
-  right: 4px;
+  right: 0px;
   top: 0px;
+  padding: 0px 4px;
   text-align: right;
+}
+
+.large-element-children.clickables:hover {
+  cursor: pointer;
+  outline: solid yellow 2px;
+  background: #00ff2b33;
 }
 
 .large-element-lewis-dots {

@@ -1,4 +1,5 @@
 import { getTextWidth } from "./textWidth.js";
+var elInfo;
 
 var dragging = null;
 
@@ -19,14 +20,25 @@ document.body.addEventListener("mouseup", (e) => {
   }
 });
 
-export class Draggable {
+export function init(readElementsLib) {
+  elInfo = readElementsLib;
+}
+
+export function getDraggable(type, id) {
+  const identifier = Draggable.getIdentifier(id, type);
+  return (identifier in draggables) ? draggables[identifier] : null;
+}
+
+class Draggable {
   constructor({
     allDrag = false,
     title = "",
     spawn = "root",
     width = 100,
     height = 100,
-    align = "center"
+    align = "center",
+    id = ++draggableIds,
+    type
   }) {
     this.pos = { "x":0, "y":0 };
     this.d_pos = { "x":0, "y":0 };
@@ -36,6 +48,9 @@ export class Draggable {
     
     this.el.style.width = `${width}px`;
     this.el.style.height = `${height + 20}px`;
+    this.el.style.zIndex = topZ++;
+
+    this.isMinimized = false;
 
     const header = document.createElement("div");
     header.classList.add("draggable-headers");
@@ -50,7 +65,7 @@ export class Draggable {
     const max = 16;
     const min = 8;
     for (let i = max; i >= min; i--) {
-      if (i == min || getTextWidth(title, "Roboto Slab", i) <= width) {
+      if (i == min || getTextWidth(title, "Roboto Slab", i) <= width-1) {
         titleEl.style.fontSize = `${i}px`;
         titleEl.style.paddingTop = `${(max-i)/2}px`; // center vertically
 
@@ -60,17 +75,17 @@ export class Draggable {
 
     const deleteEl = document.createElement("div");
     deleteEl.classList.add("draggable-deletes");
-    deleteEl.setAttribute("title", "Delete");
+    deleteEl.setAttribute("title", "Close");
 
-    const minimizeEl = document.createElement("div");
-    minimizeEl.classList.add("draggable-minimizes");
-    minimizeEl.setAttribute("title", "Minimize");
+    this.minimizeEl = document.createElement("div");
+    this.minimizeEl.classList.add("draggable-minimizes");
+    this.minimizeEl.setAttribute("title", "Minimize");
 
     this.content = document.createElement("div");
     this.content.classList.add("draggable-contents");
 
     header.append(titleEl);
-    header.append(minimizeEl);
+    header.append(this.minimizeEl);
     header.append(deleteEl);
 
     this.el.append(header);
@@ -87,13 +102,13 @@ export class Draggable {
     }
 
     // don't all buttons to be dragged
-    minimizeEl.addEventListener("mousedown", (e) => { e.stopPropagation(); });
+    this.minimizeEl.addEventListener("mousedown", (e) => { e.stopPropagation(); });
     deleteEl.addEventListener("mousedown", (e) => { e.stopPropagation(); });
-
+    
     deleteEl.addEventListener("click", this.remove.bind(this));
-    minimizeEl.addEventListener("click", this.minimize.bind(this, minimizeEl));
-
-    this.id = draggableIds++; 
+    this.minimizeEl.addEventListener("click", this.toggleMinimize.bind(this));
+    
+    this.id = Draggable.getIdentifier(id, type); 
     draggables[this.id] = this;
     if (!(spawn in draggableHeritage)) draggableHeritage[spawn] = [];
     draggableHeritage[spawn].push(this.id);
@@ -132,56 +147,98 @@ export class Draggable {
     if (index != -1) draggableHeritage[this.spawn].splice(this.id, 1);
     if (draggableHeritage[this.spawn].length == 0) delete draggableHeritage[this.spawn]; // no children, therefore no need to store
   }
-  minimize(minimizer) {
-    if (minimizer.getAttribute("maximize")) { // do maximize
-      minimizer.removeAttribute("maximize");
+  toggleMinimize() {
+    if (this.isMinimized) { // do maximize
       this.el.classList.remove("minimized");
+      this.isMinimized = false;
+      this.minimizeEl.setAttribute("title", "Minimize");
     }
     else { // do minimize
-      minimizer.setAttribute("maximize", "1");
       this.el.classList.add("minimized");
+      this.isMinimized = true;
+      this.minimizeEl.setAttribute("title", "Maximize");
     }
+  }
+
+  identify() {
+    this.el.classList.add("brights");
+    this.el.offsetHeight; // CSS reflow
+    this.el.classList.remove("brights");
+    this.el.classList.add("unbrights");
+
+    setTimeout(() => {
+      this.el.classList.remove("unbrights");
+    }, 100);
+    this.bringToTop();
+    if (this.isMinimized) { this.toggleMinimize(); }
+  }
+
+  static getIdentifier(id, type) {
+    return `<${type}>${id}`;
   }
 }
 
-export class LargeElement extends Draggable {
+class LargeElement extends Draggable {
   constructor({
-    name,
     symbol,
-    number,
-    mass,
-    valence,
-    state,
-    config,
-    color
+    color,
+    type = "LargeElement"
   }) {
     super({
       allDrag: false,
-      title: name,
+      title: elInfo.getName(symbol),
       width: 100,
-      height: 100
+      height: 100,
+      id: symbol,
+      type: type
     });
+
+    const symbolWidth = Math.max(30, getTextWidth(symbol, "Roboto Slab", 40)); // symbol will be treated as having at lesat 30px of width
 
     const symbolEl = document.createElement("div");
     symbolEl.classList.add("large-element-symbols");
     symbolEl.classList.add("large-element-children");
+    // symbolEl.classList.add("clickables");
+    symbolEl.style.width = `${symbolWidth}px`;
     symbolEl.innerText = symbol;
 
+    const number = elInfo.getNumber(symbol);
     const numberEl = document.createElement("div");
     numberEl.classList.add("large-element-numbers");
     numberEl.classList.add("large-element-children");
+    // numberEl.classList.add("clickables");
+    numberEl.setAttribute("title", `${number} protons`);
     numberEl.innerText = number;
 
     
+    const mass = elInfo.getMass(symbol);
     const massEl = document.createElement("div");
     massEl.classList.add("large-element-masses");
     massEl.classList.add("large-element-children");
+    massEl.classList.add("clickables");
     massEl.innerText = formatFloat(mass, 4);
+    massEl.setAttribute("title", `~${formatFloat(mass, 5)} au, on average`);
 
+    massEl.addEventListener("click", () => {
+      const el = buildIsotopeDisplay({
+        spawn: this.id,
+        symbol: symbol
+      });
+      if (el.isNew) {
+        this.el.parentElement.append(el.el);
+        const bounds = this.el.getBoundingClientRect();
+        el.setPos(
+          bounds.left + bounds.width + 5,
+          bounds.top
+        );
+      }
+    });
+
+    const valence = Math.min(8, elInfo.getValence(symbol)); // 'min' to prevent wierdness from elements like Pd (need to ask about this)
     const valenceEls = [];
     const posXConvert = [ -0.6, -0.2, 0, 0.2, 0.6 ];
     const posYConvert = [ -23, -8, 0, 8, 23 ];
-    const xScale = Math.max(30, getTextWidth(symbol, "Roboto Slab", 40));
+    const xScale = symbolWidth;
     for (let pos of lewisStructurePos[valence-1]) {
       const valenceEl = document.createElement("div");
       valenceEl.classList.add("large-element-lewis-dots");
@@ -191,9 +248,11 @@ export class LargeElement extends Draggable {
       valenceEls.push(valenceEl);
     }
 
+    const config = elInfo.getConfig(symbol);
     const configEl = document.createElement("div");
     configEl.classList.add("large-element-configurations");
     configEl.classList.add("large-element-children");
+    // configEl.classList.add("clickables");
     const configPattern = /^(\[.+\])|((\d+)(\D)(\d+))$/;
     for (const term of config.split(" ")) {
       const match = term.match(configPattern);
@@ -208,19 +267,19 @@ export class LargeElement extends Draggable {
         termEl.append(noble);
       }
       else {
-        const shell = document.createElement("div");
-        shell.classList.add("large-element-configuration-shells");
-        shell.innerText = match[3];
+        // const shell = document.createElement("div");
+        // shell.classList.add("large-element-configuration-shells");
+        // shell.innerText = match[3];
 
         const subshell = document.createElement("div");
         subshell.classList.add("large-element-configuration-subshells");
-        subshell.innerText = match[4];
+        subshell.innerText = match[3] + match[4]; // same font, so these can be combined
 
         const index = document.createElement("div");
         index.classList.add("large-element-configuration-indicies");
         index.innerText = match[5];
 
-        termEl.append(shell);
+        // termEl.append(shell);
         termEl.append(subshell);
         termEl.append(index);
       }
@@ -236,6 +295,63 @@ export class LargeElement extends Draggable {
     valenceEls.forEach(valenceEl => { this.content.append(valenceEl); });
     this.content.append(configEl);
   }
+}
+
+export function buildLargeElement({
+  symbol,
+  color,
+  type = "LargeElement"
+}) {
+  let el = getDraggable("LargeElement", symbol);
+  if (el) {
+    el.isNew = false;
+    el.identify();
+  }
+  else {
+    el = new LargeElement({
+      symbol,
+      color,
+      type
+    });
+    el.isNew = true;
+  }
+  return el;
+}
+
+class IsotopeDisplay extends Draggable {
+  constructor({
+    symbol,
+    spawn
+  }) {
+    super({
+      title: `${symbol} Isotopes`,
+      allDrag: false,
+      id: symbol,
+      spawn: spawn,
+      height: 100,
+      width: 200,
+      type: "IsotopeDisplay"
+    });
+  }
+}
+
+export function buildIsotopeDisplay({
+  symbol,
+  spawn
+}) {
+  let el = getDraggable("IsotopeDisplay", symbol);
+  if (el) {
+    el.isNew = false;
+    el.identify();
+  }
+  else {
+    el = new IsotopeDisplay({
+      symbol,
+      spawn
+    });
+    el.isNew = true;
+  }
+  return el;
 }
 
 const lewisStructurePos = [

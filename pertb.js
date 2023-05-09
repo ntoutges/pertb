@@ -1,6 +1,7 @@
 const $ = document.querySelector.bind(document);
 
-import { Draggable, LargeElement } from "./menus.js";
+import * as menus from "./menus.js";
+import * as elInfo from "./readElements.js";
 
 var elements = {};
 var layout = null;
@@ -20,6 +21,8 @@ var columnSize;
   const elementFetch = fetch("elements.json").then(res => res.json())
   const tableFetch = fetch("table.json").then(res => res.json())
   
+  menus.init(elInfo);
+
   Promise.allSettled([
     elementFetch,
     tableFetch
@@ -27,6 +30,8 @@ var columnSize;
     elements = res[0].value;
     layout = res[1].value.layout;
     styles = res[1].value.style;
+
+    elInfo.init(elements);
 
     for (let link of res[1].value.links) {
       for (let el1 of link) {
@@ -171,7 +176,7 @@ function elementClicked() {
   const id = this.getAttribute("id").replace(/^el-/, "");
   const element = elements[id];
 
-  const el = new LargeElement({
+  const el = menus.buildLargeElement({
     color: styles[element.group].color,
     mass: element.mass,
     name: element.name,
@@ -181,14 +186,16 @@ function elementClicked() {
     state: element.state,
     valence: element.shells[element.shells.length-1]
   });
-
-  const elPosInfo = this.getBoundingClientRect();
-  el.setPos(
-    elPosInfo.left + elPosInfo.width,
-    elPosInfo.top
-  );
   
-  $("#draggables-container").append(el.el);
+  if (el.isNew) {
+    $("#draggables-container").append(el.el);
+    
+    const elPosInfo = this.getBoundingClientRect();
+    el.setPos(
+      elPosInfo.left + elPosInfo.width,
+      elPosInfo.top
+    );
+  }
 }
 
 function elementStartHover() {
