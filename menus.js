@@ -359,13 +359,34 @@ class IsotopeDisplay extends Draggable {
     });
 
     const isotopes = elInfo.getIsotopes(symbol);
-    // VERY temp to ensure functionality
-    for (let isotope in isotopes) {
-      let text = isotope + ": " + formatFloat(isotopes[isotope].mass, 5) + ", " + formatFloat(isotopes[isotope].frequency, 5);
-      this.content.innerHTML += text + "<br>"
+    let maxFrequency = 0.001; // small, non-zero to prevent divide-by-zero error
+    // const isotopeNumPattern = /.+-(\d+)/;
+
+    for (let i in isotopes) {
+      maxFrequency = Math.max(maxFrequency, isotopes[i].frequency);
+      // const isotopeNum = i.match(isotopeNumPattern)[1];
     }
-    this.content.style.overflowY = "auto";
-    console.log(isotopes)
+    
+    const graphEl = document.createElement("div");
+    graphEl.classList.add("isotope-display-children");
+    graphEl.classList.add("isotope-display-graphs");
+
+    // NOTE: need a way to add nearly-imperceptible elements
+    // and autoscale on x-axis
+    for (let i in isotopes) {
+      const isotope = isotopes[i];
+      const height = 80 * isotope.frequency / maxFrequency; // normalize to a specific height
+      console.log(height);
+
+      const bar = document.createElement("div");
+      bar.classList.add("isotope-display-graph-bars");
+      bar.style.height = `${height}px`;
+      
+      graphEl.append(bar);
+    }
+    this.content.append(graphEl);
+    
+    // this.content.style.overflowY = "auto";
   }
 }
 
@@ -397,7 +418,7 @@ class BigNumber extends Draggable {
     super({
       title: type,
       type: "BigNumber",
-      allDrag: false,
+      allDrag: true,
       height: 30,
       width: 100,
       id: type + ":" + number,

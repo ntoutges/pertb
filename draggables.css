@@ -288,3 +288,17 @@
 .big-number-copieds.actives {
   transform: translateY(0);
 }
+
+
+.isotope-display-graphs {
+  width: 100px;
+  height: 100px;
+  background-color: cornsilk;
+}
+
+.isotope-display-graph-bars {
+  width: 5px;
+  background-color: black;
+  display: inline-block;
+  margin-right: 5px;
+}
