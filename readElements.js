@@ -14,3 +14,4 @@ export function getValence(symbol) {
 }
 export function getConfig(symbol) { return elements[symbol].electron_configuration; }
 export function getGroup(symbol) { return elements[symbol].group; }
+export function getIsotopes(symbol) { return elements[symbol].isotopes; }

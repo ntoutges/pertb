@@ -117,6 +117,10 @@ class Draggable {
   }
 
   startDrag(e) {
+    if (e.button == 1) {
+      this.remove(); // middle click removes window
+      return;
+    }
     this.d_pos.x = e.pageX - this.pos.x;
     this.d_pos.y = e.pageY - this.pos.y;
     dragging = this;
@@ -233,7 +237,7 @@ class LargeElement extends Draggable {
     massEl.classList.add("large-element-masses");
     massEl.classList.add("large-element-children");
     massEl.classList.add("clickables");
-    massEl.innerText = formatFloat(mass, 4);
+    massEl.innerText = formatFloat(mass, 5);
     massEl.setAttribute("title", `~${formatFloat(mass, 5)} au, on average`);
 
     massEl.addEventListener("click", () => {
@@ -251,18 +255,23 @@ class LargeElement extends Draggable {
       }
     });
 
-    const valence = elInfo.getValence(symbol);
-    const valenceEls = [];
-    const posXConvert = [ -0.6, -0.2, 0, 0.2, 0.6 ];
-    const posYConvert = [ -23, -8, 0, 8, 23 ];
-    const xScale = symbolWidth;
-    for (let pos of lewisStructurePos[valence-1]) {
-      const valenceEl = document.createElement("div");
-      valenceEl.classList.add("large-element-lewis-dots");
-      valenceEl.classList.add("large-element-children");
-      valenceEl.style.left = `calc(50% + ${posXConvert[pos.x]*xScale}px)`;
-      valenceEl.style.top = `calc(50% + ${posYConvert[pos.y]}px)`;
-      valenceEls.push(valenceEl);
+    // don't even try to draw lewis structure for transition metals (they just don't behave)
+    if (elInfo.getGroup(symbol) != "Transition Metal") {
+      const valence = elInfo.getValence(symbol);
+      const valenceEls = [];
+      const posXConvert = [ -0.6, -0.2, 0, 0.2, 0.6 ];
+      const posYConvert = [ -23, -8, 0, 8, 23 ];
+      const xScale = symbolWidth;
+      for (let pos of lewisStructurePos[valence-1]) {
+        const valenceEl = document.createElement("div");
+        valenceEl.classList.add("large-element-lewis-dots");
+        valenceEl.classList.add("large-element-children");
+        valenceEl.style.left = `calc(50% + ${posXConvert[pos.x]*xScale}px)`;
+        valenceEl.style.top = `calc(50% + ${posYConvert[pos.y]}px)`;
+        valenceEls.push(valenceEl);
+      }
+
+      valenceEls.forEach(valenceEl => { this.content.append(valenceEl); });
     }
 
     const config = elInfo.getConfig(symbol);
@@ -309,7 +318,6 @@ class LargeElement extends Draggable {
     this.content.append(symbolEl);
     this.content.append(numberEl);
     this.content.append(massEl);
-    valenceEls.forEach(valenceEl => { this.content.append(valenceEl); });
     this.content.append(configEl);
   }
 }
@@ -349,6 +357,15 @@ class IsotopeDisplay extends Draggable {
       width: 200,
       type: "IsotopeDisplay"
     });
+
+    const isotopes = elInfo.getIsotopes(symbol);
+    // VERY temp to ensure functionality
+    for (let isotope in isotopes) {
+      let text = isotope + ": " + formatFloat(isotopes[isotope].mass, 5) + ", " + formatFloat(isotopes[isotope].frequency, 5);
+      this.content.innerHTML += text + "<br>"
+    }
+    this.content.style.overflowY = "auto";
+    console.log(isotopes)
   }
 }
 
