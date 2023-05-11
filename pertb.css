@@ -10,6 +10,11 @@
   src: url("RobotoSlab.ttf");
 }
 
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("SourceCodePro.ttf")
+}
+
 #text-width-getter {
   display: none;
 }
@@ -27,6 +32,12 @@ body {
   position: relative;
   top: 10px;
   left: 10px
+}
+
+#table.actives {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 55px;
 }
 
 .table-columns, .island-rows {

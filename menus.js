@@ -40,6 +40,7 @@ class Draggable {
     id = ++draggableIds,
     type
   }) {
+    this.hasMoved = false;
     this.pos = { "x":0, "y":0 };
     this.d_pos = { "x":0, "y":0 };
 
@@ -105,7 +106,14 @@ class Draggable {
     this.minimizeEl.addEventListener("mousedown", (e) => { e.stopPropagation(); });
     deleteEl.addEventListener("mousedown", (e) => { e.stopPropagation(); });
     
-    deleteEl.addEventListener("click", this.remove.bind(this));
+    deleteEl.addEventListener("mousedown", (e) => {
+      if (e.button == 0) this.remove(); // left click
+    });
+    deleteEl.addEventListener("contextmenu", (e) => { // right click
+      e.preventDefault();
+      this.removeChildren();
+    })
+
     this.minimizeEl.addEventListener("click", this.toggleMinimize.bind(this));
     
     this.id = Draggable.getIdentifier(id, type); 
@@ -124,6 +132,7 @@ class Draggable {
     this.d_pos.x = e.pageX - this.pos.x;
     this.d_pos.y = e.pageY - this.pos.y;
     dragging = this;
+    this.hasMoved = true;
     this.bringToTop();
   }
   doDrag(e) {
@@ -142,14 +151,28 @@ class Draggable {
     this.pos.y = y;
     this.el.style.left = `${this.pos.x}px`;
     this.el.style.top = `${this.pos.y}px`;
+    this.hasMoved = true;
   }
 
   remove() {
     this.el.remove();
     delete draggables[this.id];
     const index = draggableHeritage[this.spawn].indexOf(this.id);
-    if (index != -1) draggableHeritage[this.spawn].splice(this.id, 1);
+    if (index != -1) draggableHeritage[this.spawn].splice(index, 1);
     if (draggableHeritage[this.spawn].length == 0) delete draggableHeritage[this.spawn]; // no children, therefore no need to store
+    this.removeChildren();
+  }
+  removeChildren() {
+    if (this.id in draggableHeritage) {
+      const toRemove = [];
+      for (const id of draggableHeritage[this.id]) {
+        toRemove.push(draggables[id]);
+      }
+      for (const el of toRemove) {
+        el.remove();
+      }
+    }
+    this.hasMoved = true; // flag to indicate if elements that produce children in consecutive locations should reset their counters
   }
   toggleMinimize() {
     if (this.isMinimized) { // do maximize
@@ -202,9 +225,24 @@ class LargeElement extends Draggable {
     const symbolEl = document.createElement("div");
     symbolEl.classList.add("large-element-symbols");
     symbolEl.classList.add("large-element-children");
-    // symbolEl.classList.add("clickables");
+    symbolEl.classList.add("clickables");
     symbolEl.style.width = `${symbolWidth}px`;
     symbolEl.innerText = symbol;
+
+    symbolEl.addEventListener("click", () => {
+      const el = buildIsotopeDisplay({
+        spawn: this.id,
+        symbol: symbol
+      });
+      if (el.isNew) {
+        this.el.parentElement.append(el.el);
+        const bounds = this.el.getBoundingClientRect();
+        el.setPos(
+          bounds.left + bounds.width + 5,
+          bounds.top
+        );
+      }
+    });
 
     const number = elInfo.getNumber(symbol);
     const numberEl = document.createElement("div");
@@ -225,11 +263,11 @@ class LargeElement extends Draggable {
         this.el.parentElement.append(el.el);
         const bounds = this.el.getBoundingClientRect();
         el.setPos(
-          bounds.left + bounds.width + 5,
+          bounds.left - bounds.width - 5,
           bounds.top
         );
       }
-    })
+    });
 
     
     const mass = elInfo.getMass(symbol);
@@ -241,16 +279,18 @@ class LargeElement extends Draggable {
     massEl.setAttribute("title", `~${formatFloat(mass, 5)} au, on average`);
 
     massEl.addEventListener("click", () => {
-      const el = buildIsotopeDisplay({
+      const el = buildBigNumber({
         spawn: this.id,
-        symbol: symbol
+        number: mass,
+        type: `${mass} Mass`
       });
+
       if (el.isNew) {
         this.el.parentElement.append(el.el);
         const bounds = this.el.getBoundingClientRect();
         el.setPos(
-          bounds.left + bounds.width + 5,
-          bounds.top
+          bounds.left - bounds.width - 5,
+          bounds.top + 55
         );
       }
     });
@@ -310,8 +350,44 @@ class LargeElement extends Draggable {
         termEl.append(index);
       }
 
+      termEl.addEventListener("click", () => {
+        const el = buildElectronConfig({
+          spawn: this.id,
+          terms: config,
+          symbol: symbol
+        });
+        if (el.isNew) {
+          this.el.parentElement.append(el.el);
+          const bounds = this.el.getBoundingClientRect();
+          el.setPos(
+            bounds.left,
+            bounds.top - 55
+          );
+        }
+      });
+
       configEl.append(termEl);
     }
+
+    const moreInfoEl = document.createElement("div");
+    moreInfoEl.classList.add("large-element-children");
+    moreInfoEl.classList.add("large-element-more-infos");
+    moreInfoEl.setAttribute("title", "raw data");
+
+    moreInfoEl.addEventListener("click", () => {
+      const el = buildRawData({
+        spawn: this.id,
+        symbol: symbol
+      });
+      if (el.isNew) {
+        this.el.parentElement.append(el.el);
+        const bounds = this.el.getBoundingClientRect();
+        el.setPos(
+          bounds.left,
+          bounds.top + bounds.height + 5
+        );
+      }
+    });
 
     this.content.style.backgroundColor = color;
 
@@ -319,6 +395,7 @@ class LargeElement extends Draggable {
     this.content.append(numberEl);
     this.content.append(massEl);
     this.content.append(configEl);
+    this.content.append(moreInfoEl);
   }
 }
 
@@ -360,33 +437,258 @@ class IsotopeDisplay extends Draggable {
 
     const isotopes = elInfo.getIsotopes(symbol);
     let maxFrequency = 0.001; // small, non-zero to prevent divide-by-zero error
-    // const isotopeNumPattern = /.+-(\d+)/;
+    const isotopeNumPattern = /.+-(\d+)/;
 
     for (let i in isotopes) {
       maxFrequency = Math.max(maxFrequency, isotopes[i].frequency);
       // const isotopeNum = i.match(isotopeNumPattern)[1];
     }
     
+    this.currentIsotope = null;
+    this.isotopePos = {};
+    this.graphChangeEnabled = true;
+
     const graphEl = document.createElement("div");
     graphEl.classList.add("isotope-display-children");
     graphEl.classList.add("isotope-display-graphs");
 
+    graphEl.addEventListener("mouseleave", () => { this.graphChangeEnabled = true; })
+
+    const abundance = document.createElement("div");
+    abundance.classList.add("isotope-display-children");
+    abundance.classList.add("isotope-display-headers");
+    abundance.innerText = "Abundance";
+    const abundanceVal = document.createElement("div");
+    abundanceVal.classList.add("isotope-display-children");
+    abundanceVal.classList.add("isotope-display-values");
+    abundanceVal.style.top = "14px";
+    abundanceVal.innerText = "---";
+
+    abundanceVal.addEventListener("click", this.buildAbundance.bind(this, isotopes));
+
+    const mass = document.createElement("div");
+    mass.classList.add("isotope-display-children");
+    mass.classList.add("isotope-display-headers");
+    mass.classList.add("isotope-display-mass-headers");
+    mass.style.top = "32px";
+    mass.innerText = "Mass";
+    const massVal = document.createElement("div");
+    massVal.classList.add("isotope-display-children");
+    massVal.classList.add("isotope-display-values");
+    massVal.classList.add("isotope-display-mass-values");
+    massVal.style.top = "46px";
+    massVal.innerText = "---";
+
+    massVal.addEventListener("click", this.buildMass.bind(this, isotopes));
+
+    const neutrons = document.createElement("div");
+    neutrons.classList.add("isotope-display-children");
+    neutrons.classList.add("isotope-display-headers");
+    neutrons.style.top = "64px";
+    neutrons.innerText = "Neutrons";
+    const neutronsVal = document.createElement("div");
+    neutronsVal.classList.add("isotope-display-children");
+    neutronsVal.classList.add("isotope-display-values");
+    neutronsVal.style.top = "78px";
+    neutronsVal.innerText = "---";
+
+    neutronsVal.addEventListener("click", this.buildNeutrons.bind(this, isotopeNumPattern, symbol));
+
+    let oldHighlight = null;
+
+    const thisOne = this;
     // NOTE: need a way to add nearly-imperceptible elements
     // and autoscale on x-axis
     for (let i in isotopes) {
       const isotope = isotopes[i];
-      const height = 80 * isotope.frequency / maxFrequency; // normalize to a specific height
-      console.log(height);
+      let height = 80 * isotope.frequency / maxFrequency; // normalize to a specific height
+      
+      const isotopeNumber = i.match(isotopeNumPattern)[1];
+      const barContainer = document.createElement("div");
+      barContainer.classList.add("isotope-display-graph-bars");
+      barContainer.setAttribute("data-isotope", i);
+      barContainer.setAttribute("title", `${i}; right-click for more info`)
 
       const bar = document.createElement("div");
-      bar.classList.add("isotope-display-graph-bars");
+      bar.classList.add("isotope-display-graph-bar-graphics");
+      if (isotope.frequency == 0) {
+        height = 80;
+        bar.classList.add("unavailables");
+      }
       bar.style.height = `${height}px`;
-      
-      graphEl.append(bar);
+      bar.style.top = `${80-height}px`;
+
+      const divider = document.createElement("div");
+      divider.classList.add("isotope-display-graph-bar-dividers");
+      divider.style.top = `${80-height}px`;
+
+      const isotopeNumContainer = document.createElement("div");
+      isotopeNumContainer.classList.add("isotope-display-graph-bar-numbers")
+      isotopeNumContainer.style.top = `${80-height}px`;
+
+      const isotopeNum = document.createElement("div");
+      isotopeNum.classList.add("isotope-display-graph-bar-numbers-value");
+      isotopeNum.innerText = isotopeNumber
+
+      isotopeNumContainer.append(isotopeNum);
+
+      barContainer.append(bar);
+      barContainer.append(divider);
+      barContainer.append(isotopeNumContainer);
+      graphEl.append(barContainer);
+
+      barContainer.addEventListener("mouseenter", () => {
+        if (!this.graphChangeEnabled) return;
+        doSelect();
+      });
+      barContainer.addEventListener("click", () => {
+        this.graphChangeEnabled = false;
+        doSelect();
+      });
+      barContainer.addEventListener("contextmenu", (e) => { // also allow right click to select
+        this.graphChangeEnabled = false;
+        doSelect();
+      });
+
+      function doSelect() {
+        barContainer.classList.add("actives");
+        thisOne.currentIsotope = i;
+        if (height < 5) {
+          bar.style.height = "2px";
+          bar.style.top = "78px";
+          divider.style.top = "78px"
+          isotopeNum.style.top = "78px";
+        }
+
+        abundanceVal.innerText = (isotope.frequency != 0) ? formatFloat(isotope.frequency * 100, 10) + "%" : "Negligible";
+        massVal.innerText = formatFloat(isotope.mass, 10);
+        neutronsVal.innerText = Math.max(parseInt(+isotopeNumber - elInfo.getNumber(symbol)), 0); // prevent from going negative due to Muonium
+
+        if (oldHighlight != null && oldHighlight != barContainer) {
+          let oldHeight = 80 * isotopes[oldHighlight.getAttribute("data-isotope")].frequency / maxFrequency;
+          if (oldHeight == 0) { oldHeight = 80; }
+          oldHighlight.classList.remove("actives");
+          oldHighlight.querySelector(".isotope-display-graph-bar-graphics").style.height = `${oldHeight}px`;
+          oldHighlight.querySelector(".isotope-display-graph-bar-graphics").style.top = `${80-oldHeight}px`;
+          oldHighlight.querySelector(".isotope-display-graph-bar-dividers").style.top = `${80-oldHeight}px`;
+          oldHighlight.querySelector(".isotope-display-graph-bar-numbers-value").style.top = `${80-oldHeight}px`;
+        }
+        oldHighlight = barContainer;
+      }
+      // barContainer.addEventListener("mouseleave", () => {
+      //   barContainer.classList.remove("actives");
+      //   bar.style.height = `${height}px`;
+      //   bar.style.top = `${80-height}px`;
+      //   divider.style.top = `${80-height}px`;
+      //   isotopeNum.style.top = `${80-height}px`;
+      // });
+
+      barContainer.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        this.buildAbundance(isotopes);
+        this.buildMass(isotopes);
+        this.buildNeutrons(isotopeNumPattern, symbol);
+        this.buildName(isotope);
+      });
     }
+
+    this.content.append(abundance);
+    this.content.append(abundanceVal);
+    this.content.append(mass);
+    this.content.append(massVal);
+    this.content.append(neutrons);
+    this.content.append(neutronsVal);
+
     this.content.append(graphEl);
     
     // this.content.style.overflowY = "auto";
+  }
+
+  buildAbundance(isotopes) {
+    if (this.currentIsotope == null) return;
+    const el = buildBigNumber({
+      spawn: this.id,
+      number: isotopes[this.currentIsotope].frequency,
+      type: this.currentIsotope + " abundance"
+    });
+    if (el.isNew) {
+      this.el.parentElement.append(el.el);
+      const bounds = this.el.getBoundingClientRect();
+      
+      if (this.hasMoved) this.isotopePos = {};
+      this.hasMoved = false;
+      if (!(this.currentIsotope in this.isotopePos)) this.isotopePos[this.currentIsotope] = 0;
+      el.setPos(
+        bounds.left + bounds.width + 5 + 105*this.isotopePos[this.currentIsotope],
+        bounds.top + (Object.keys(this.isotopePos).length-1) * 55
+      );
+      this.isotopePos[this.currentIsotope]++;
+    }
+  }
+  buildMass(isotopes) {
+    if (this.currentIsotope == null) return;
+    const el = buildBigNumber({
+      spawn: this.id,
+      number: isotopes[this.currentIsotope].mass,
+      type: this.currentIsotope + " mass"
+    });
+    if (el.isNew) {
+      this.el.parentElement.append(el.el);
+      const bounds = this.el.getBoundingClientRect();
+      
+      if (this.hasMoved) this.isotopePos = {};
+      this.hasMoved = false;
+      if (!(this.currentIsotope in this.isotopePos)) this.isotopePos[this.currentIsotope] = 0;
+      el.setPos(
+        bounds.left + bounds.width + 5 + 105*this.isotopePos[this.currentIsotope],
+        bounds.top + (Object.keys(this.isotopePos).length-1) * 55
+      );
+      this.isotopePos[this.currentIsotope]++;
+    }
+  }
+  buildNeutrons(isotopeNumPattern, symbol) {
+    if (this.currentIsotope == null) return;
+    const neutronCount = Math.max(+this.currentIsotope.match(isotopeNumPattern)[1] - elInfo.getNumber(symbol), 0); // prevent from going negative, due to Muonium
+    const el = buildBigNumber({
+      spawn: this.id,
+      number: neutronCount,
+      type: this.currentIsotope + " neutrons"
+    });
+    if (el.isNew) {
+      this.el.parentElement.append(el.el);
+      const bounds = this.el.getBoundingClientRect();
+      
+      if (this.hasMoved) this.isotopePos = {};
+      this.hasMoved = false;
+      if (!(this.currentIsotope in this.isotopePos)) this.isotopePos[this.currentIsotope] = 0;
+      el.setPos(
+        bounds.left + bounds.width + 5 + 105*this.isotopePos[this.currentIsotope],
+        bounds.top + (Object.keys(this.isotopePos).length-1) * 55
+      );
+      this.isotopePos[this.currentIsotope]++;
+    }
+  }
+  buildName(isotope) {
+    if (this.currentIsotope == null) return;
+    if (!("name" in isotope)) return;
+    const el = buildBigNumber({
+      spawn: this.id,
+      number: isotope.name,
+      type: this.currentIsotope + " name"
+    });
+    if (el.isNew) {
+      this.el.parentElement.append(el.el);
+      const bounds = this.el.getBoundingClientRect();
+      
+      if (this.hasMoved) this.isotopePos = {};
+      this.hasMoved = false;
+      if (!(this.currentIsotope in this.isotopePos)) this.isotopePos[this.currentIsotope] = 0;
+      el.setPos(
+        bounds.left + bounds.width + 5 + 105*this.isotopePos[this.currentIsotope],
+        bounds.top + (Object.keys(this.isotopePos).length-1) * 55
+      );
+      this.isotopePos[this.currentIsotope]++;
+    }
   }
 }
 
@@ -476,10 +778,144 @@ export function buildBigNumber({
     el.identify();
   }
   else {
+
     el = new BigNumber({
       type,
       number,
       spawn
+    });
+    el.isNew = true;
+  }
+  return el;
+}
+
+class ElectronConfig extends Draggable {
+  constructor({
+    spawn,
+    terms,
+    symbol
+  }) {
+    let workingConfig = terms.split(" ");
+    for (let i = 0; i < workingConfig.length; i++) {
+      let term = workingConfig[i];
+      if (term[0] == "[") { // noble gas -- need to expand
+        const el = term.substring(1,term.length-1); // get noble gas symbol
+        let toAdd = elInfo.getConfig(el).split(" ");
+
+        // combine arrays, replacing noble gas with expansion
+        workingConfig = toAdd.concat(workingConfig.slice(1));
+        i--; // continue working at old location
+      }
+    }
+
+    let config = workingConfig.join(" ");
+    const largeText = (config + " ").replace(/\d+ /g, "");
+    let smallText = (" " + config).replace(/ \d+[^\d ]+/g, "");
+
+    let totalWidth = Math.max(getTextWidth(largeText, "Roboto Slab", 15) + getTextWidth(smallText, "Roboto Slab", 10) + workingConfig.length * 4, 50);
+
+    super({
+      allDrag: true,
+      title: symbol + " Config",
+      type: "ElectronConfig",
+      id: terms,
+      spawn,
+      height: 30,
+      width: totalWidth
+    });
+
+    const termContainer = document.createElement("div");
+    termContainer.classList.add("electron-configuration-term-holders");
+
+    const configPattern = /(\d+)(\D)(\d+)$/;
+    for (const term of config.split(" ")) {
+      const match = term.match(configPattern);
+
+      const termEl = document.createElement("div");
+      termEl.classList.add("electron-configuration-terms");
+
+      // const shell = document.createElement("div");
+      // shell.classList.add("large-element-configuration-shells");
+      // shell.innerText = match[3];
+
+      const subshell = document.createElement("div");
+      subshell.classList.add("electron-configuration-subshells");
+      subshell.innerText = match[1] + match[2]; // same font, so these can be combined
+
+      const index = document.createElement("div");
+      index.classList.add("electron-configuration-indicies");
+      index.innerText = match[3];
+
+      // termEl.append(shell);
+      termEl.append(subshell);
+      termEl.append(index);
+
+      termContainer.append(termEl);
+    }
+    this.content.append(termContainer);
+  }
+}
+
+export function buildElectronConfig({
+  spawn,
+  terms,
+  symbol
+}) {
+  let el = getDraggable("ElectronConfig", terms);
+  if (el) {
+    el.isNew = false;
+    el.identify();
+  }
+  else {
+    el = new ElectronConfig({
+      spawn,
+      terms,
+      symbol
+    });
+    el.isNew = true;
+  }
+  return el;
+}
+
+class RawData extends Draggable {
+  constructor({
+    symbol,
+    spawn
+  }) {
+    super({
+      spawn,
+      width: 250,
+      height: 200,
+      type: "RawData",
+      id: symbol,
+      align: "left",
+      allDrag: false,
+      title: symbol + " Raw Data"
+    });
+
+    const dataEl = document.createElement("div");
+    dataEl.classList.add("raw-data-children");
+    dataEl.classList.add("raw-data-data");
+
+    dataEl.innerText = formatJSON(elInfo.getRaw(symbol));
+
+    this.content.append(dataEl);
+  }
+}
+
+export function buildRawData({
+  symbol,
+  spawn
+}) {
+  let el = getDraggable("RawData", symbol);
+  if (el) {
+    el.isNew = false;
+    el.identify();
+  }
+  else {
+    el = new RawData({
+      spawn,
+      symbol
     });
     el.isNew = true;
   }
@@ -564,4 +1000,38 @@ function formatFloat(num, len) {
     }
     return num;
   }
+}
+
+function formatJSON(obj, layers=1) {
+  if (obj == null) return "null";
+  const isArr = Array.isArray(obj);
+  let dataStr = "";
+
+  let spaces = "";
+  let spaces1 = "";
+  for (let i = 0; i < layers; i++) {
+    spaces += "  ";
+    if (i != 0) spaces1 += "  ";
+  }
+  
+  for (let key in obj) {
+    dataStr += spaces;
+    if (!isArr) dataStr += key + ": ";
+    
+    const type = typeof obj[key]
+    if (type == "object") { dataStr += formatJSON(obj[key], layers+1); }
+    else if (type == "string") { dataStr += `\"${obj[key]}\"` }
+    else dataStr += obj[key].toString();
+
+    dataStr += ",\n";
+  }
+
+  if (dataStr.length != 0) {
+    dataStr = dataStr.substring(0, dataStr.length-2); // remove trailing ",\n"
+  }
+
+  if (isArr) {
+    return (obj.length == 0) ? "[]" : "[\n" + dataStr + "\n" + spaces1 + "]";
+  }
+  return (Object.keys(obj).length == 0) ? "{}" : "{\n" + dataStr + "\n" + spaces1 + "}";
 }

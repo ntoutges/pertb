@@ -24,16 +24,40 @@
     "name": "Hydrogen",
     "family": 1,
     "isotopes": {
+      "H-0": {
+        "mass": 0.1134289259,
+        "frequency": 0,
+        "name": "Muonium"
+      },
       "H-1": {
         "mass": 1.00782503223,
-        "frequency": 0.999885
+        "frequency": 0.999885,
+        "name": "Protium"
       },
       "H-2": {
         "mass": 2.01410177812,
-        "frequency": 0.000115
+        "frequency": 0.000115,
+        "name": "Deuterium"
       },
       "H-3": {
         "mass": 3.0160492779,
+        "frequency": 0,
+        "name": "Tritium"
+      },
+      "H-4": {
+        "mass": 4.02643,
+        "frequency": 0
+      },
+      "H-5": {
+        "mass": 5.03531,
+        "frequency": 0
+      },
+      "H-6": {
+        "mass": 6.04496,
+        "frequency": 0
+      },
+      "H-7": {
+        "mass": 7.052750,
         "frequency": 0
       }
     },

@@ -49,13 +49,33 @@ var columnSize;
 function constructTable() {
   const offset = constructMainland();
   constructIslands(offset + 0.3);
+
+  setTableBounds();
+}
+
+function setTableBounds() {
+  let maxW = 0;
+  let maxH = 0;
+  for (const child of $("#table").children) {
+    const bounds = child.getBoundingClientRect();
+    maxW = Math.max(maxW, bounds.left + bounds.width);
+    maxH = Math.max(maxH, bounds.top + bounds.height);
+  }
+
+  maxW -= $("#table").offsetLeft;
+  maxH -= $("#table").offsetTop;
+
+  $("#table").style.width = `${maxW}px`;
+  $("#table").style.height = `${maxH}px`;
+  $("#table").classList.add("actives");
 }
 
 // mainland considered anything within normal numbering scheme /[1-18]/
 function constructMainland() {
   let maxHeight = 0;
   let families = [];
-  for (let i = 1; i <= 18; i++) {
+  let i = 1;
+  while (i in layout) {
     const family = document.createElement("div");
     family.classList.add("table-columns");
     family.setAttribute("data-family", i.toString());
@@ -67,11 +87,13 @@ function constructMainland() {
     
     $("#table").append(family);
     families.push(family);
+    i++;
   }
 
   for (let family of families) {
     family.style.height = `${maxHeight * (hoverSize + 1*size)/2 - (hoverSize - size)/2}px`
   }
+
   return maxHeight;
 }
 
@@ -97,6 +119,8 @@ function constructIslands(offset) {
   for (let family of families) {
     family.style.width = `${maxWidth*columnSize - 10}px`
   }
+
+  return localOffset;
 }
 
 function constructIsland(group) {
